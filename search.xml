@@ -2,17 +2,9 @@
 <search>
   <entry>
     <title>test</title>
-    <url>/2020/02/18/test/</url>
-    <content><![CDATA[<p><img src="../uploads/test/image-20200219093534760.png" alt="image-20200219093534760"></p>
+    <url>/2020/02/19/test/</url>
+    <content><![CDATA[<p><img src="/2020/02/19/test/image-20200219112447083.png" alt="image-20200219112447083"></p>
 ]]></content>
-      <categories>
-        <category>test</category>
-        <category>test2</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
-        <tag>test2</tag>
-      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
