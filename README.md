@@ -1,4 +1,4 @@
 # Lich's Blog
 
-http://lich.site
+https://lich.site
 

@@ -88,7 +88,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="分类">
-<meta property="og:url" content="http://lich.site/categories/index.html">
+<meta property="og:url" content="https://lich.site/categories/index.html">
 <meta property="og:site_name" content="Lich&#39;s Blog">
 <meta property="article:published_time" content="2020-02-18T11:58:14.000Z">
 <meta property="article:modified_time" content="2020-02-18T14:30:21.060Z">
@@ -103,7 +103,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -123,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://lich.site/categories/"/>
+  <link rel="canonical" href="https://lich.site/categories/"/>
 
 
 
@@ -307,10 +307,10 @@
         
           <div class="category-all-page">
             <div class="category-all-title">
-                暂无分类
+                目前共计 1 个分类
             </div>
             <div class="category-all">
-              
+              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li></ul>
             </div>
           </div>
         
@@ -377,7 +377,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -432,6 +450,28 @@
                 
               </ul>
             </div>
+          
+
+          
+              <div class="links-of-blogroll motion-element links-of-blogroll-block">
+                <div class="links-of-blogroll-title">
+                  <!-- modify icon to fire by szw -->
+                  <i class="fa fa-history fa-" aria-hidden="true"></i>
+                  近期文章
+                </div>
+                <ul class="links-of-blogroll-list">
+                  
+                  
+                    <li>
+                      <a href="/2020/02/19/test/" title="test" target="_blank">test</a>
+                    </li>
+                  
+                    <li>
+                      <a href="/2020/02/18/hello-world/" title="Hello World" target="_blank">Hello World</a>
+                    </li>
+                  
+                </ul>
+              </div>
           
 
           
@@ -491,6 +531,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -619,6 +661,8 @@
 
 
   
+
+
 
 
 
