@@ -1,6 +1,480 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Apache Ambari-2.7.4.0 Centos7离线安装</title>
+    <url>/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="Ambari"><a href="#Ambari" class="headerlink" title="Ambari"></a>Ambari</h2><ul>
+<li>Ambari 跟 Hadoop 等开源软件一样，也是 Apache Software Foundation 中的一个项目，并且是顶级项目。就 Ambari 的作用来说，就是创建、管理、监视 Hadoop 的集群，但是这里的 Hadoop 指的是 Hadoop 整个生态圈（例如 Hive，Hbase，Sqoop，Zookeeper 等）， 而并不仅是特指 Hadoop。用一句话来说，Ambari 就是为了让 Hadoop 以及相关的大数据软件更容易使用的一个工具。</li>
+<li>Ambari 自身也是一个分布式架构的软件，主要由两部分组成：Ambari Server 和 Ambari Agent。简单来说，用户通过 Ambari Server 通知 Ambari Agent 安装对应的软件；Agent 会定时地发送各个机器每个软件模块的状态给 Ambari Server，最终这些状态信息会呈现在 Ambari 的 GUI，方便用户了解到集群的各种状态，并进行相应的维护。</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="HDP"><a href="#HDP" class="headerlink" title="HDP"></a>HDP</h2><ul>
+<li>HDP是hortonworks的软件栈，里面包含了hadoop生态系统的所有软件项目，比如HBase,Zookeeper,Hive,Pig等等。</li>
+</ul>
+<h2 id="HDP-UTILS"><a href="#HDP-UTILS" class="headerlink" title="HDP-UTILS"></a>HDP-UTILS</h2><ul>
+<li>HDP-UTILS是工具类库。</li>
+</ul>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="Ambari、HDP版本介绍"><a href="#Ambari、HDP版本介绍" class="headerlink" title="Ambari、HDP版本介绍"></a>Ambari、HDP版本介绍</h2><ul>
+<li>Ambari 2.7.4.0支持HDP-3.1.4使用以下URL确定对每个产品版本的支持<br><a href="https://supportmatrix.hortonworks.com/" target="_blank" rel="noopener">https://supportmatrix.hortonworks.com/</a>，以及下载报告</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220201704962.png" alt="image-20200220201704962"></p>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220201743769.png" alt="image-20200220201743769"></p>
+<h2 id="搭建环境准备"><a href="#搭建环境准备" class="headerlink" title="搭建环境准备"></a>搭建环境准备</h2><h3 id="软件要求"><a href="#软件要求" class="headerlink" title="软件要求"></a>软件要求</h3><table>
+<thead>
+<tr>
+<th align="center">组件</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">操作系统</td>
+<td align="center">Centos 7.7</td>
+</tr>
+<tr>
+<td align="center">Ambari</td>
+<td align="center">2.7.4.0</td>
+</tr>
+<tr>
+<td align="center">HDP</td>
+<td align="center">3.1.4.0</td>
+</tr>
+<tr>
+<td align="center">HDP-GPL</td>
+<td align="center">3.1.4.0</td>
+</tr>
+<tr>
+<td align="center">HDP-UTILS</td>
+<td align="center">1.1.0.22</td>
+</tr>
+<tr>
+<td align="center">Mysql</td>
+<td align="center">5.7</td>
+</tr>
+<tr>
+<td align="center">JDK8</td>
+<td align="center">jdk1.8.0_221</td>
+</tr>
+<tr>
+<td align="center">scala</td>
+<td align="center">2.11.12</td>
+</tr>
+<tr>
+<td align="center">X86</td>
+<td align="center">X86-64</td>
+</tr>
+</tbody></table>
+<h3 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h3><ul>
+<li>Centos 7清华镜像 <a href="https://mirrors.tuna.tsinghua.edu.cn/centos/7/isos/x86_64/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/centos/7/isos/x86_64/</a></li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220202924124.png" alt="image-20200220202924124"></p>
+<ul>
+<li>Ambari 2.7.4.0安装包下载地址：<a href="https://docs.cloudera.com/HDPDocuments/Ambari-2.7.4.0/bk_ambari-installation/content/ambari_repositories.html" target="_blank" rel="noopener">https://docs.cloudera.com/HDPDocuments/Ambari-2.7.4.0/bk_ambari-installation/content/ambari_repositories.html</a></li>
+<li>HDP 3.1.4.0、HDP-GPL-3.1.4.0 和 HDP-UTILS 1.1.0.22安装包下载地址：<a href="https://docs.cloudera.com/HDPDocuments/Ambari-2.7.4.0/bk_ambari-installation/content/hdp_314_repositories.html" target="_blank" rel="noopener">https://docs.cloudera.com/HDPDocuments/Ambari-2.7.4.0/bk_ambari-installation/content/hdp_314_repositories.html</a></li>
+<li>MySQL 5.7</li>
+<li>OracleJDK8 1.8.0_221下载地址：<a href="https://www.oracle.com/technetwork/cn/java/javase/downloads/java-archive-javase8-2177648-zhs.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/cn/java/javase/downloads/java-archive-javase8-2177648-zhs.html</a></li>
+</ul>
+<h2 id="集群节点规划准备"><a href="#集群节点规划准备" class="headerlink" title="集群节点规划准备"></a>集群节点规划准备</h2><table>
+<thead>
+<tr>
+<th align="center">Hostname</th>
+<th align="center">IP</th>
+<th align="center">Functions</th>
+<th align="center">CPU</th>
+<th align="center">内存</th>
+<th align="center">硬盘</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">yunm.hdp</td>
+<td align="center">192.168.2.77</td>
+<td align="center">Ambari/HDP packages</td>
+<td align="center">4C</td>
+<td align="center">8G</td>
+<td align="center">200G</td>
+</tr>
+<tr>
+<td align="center">nd-00.hdp</td>
+<td align="center">192.168.2.100</td>
+<td align="center">Ambari Server</td>
+<td align="center">4C</td>
+<td align="center">8G</td>
+<td align="center">200G</td>
+</tr>
+<tr>
+<td align="center">nd-01.hdp</td>
+<td align="center">192.168.2.101</td>
+<td align="center">Compute node</td>
+<td align="center">4C</td>
+<td align="center">8G</td>
+<td align="center">200G</td>
+</tr>
+<tr>
+<td align="center">nd-02.hdp</td>
+<td align="center">192.168.2.102</td>
+<td align="center">Compute node</td>
+<td align="center">4C</td>
+<td align="center">8G</td>
+<td align="center">200G</td>
+</tr>
+</tbody></table>
+<h1 id="搭建虚拟机"><a href="#搭建虚拟机" class="headerlink" title="搭建虚拟机"></a>搭建虚拟机</h1><ul>
+<li>搭建yum.hdp虚拟机，然后完成克隆，虚拟机搭建完毕。</li>
+</ul>
+<h2 id="搭建yum-hdp虚拟机"><a href="#搭建yum-hdp虚拟机" class="headerlink" title="搭建yum.hdp虚拟机"></a>搭建yum.hdp虚拟机</h2><p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203046966.png" alt="image-20200220203046966"></p>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203059759.png" alt="image-20200220203059759"></p>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203110491.png" alt="image-20200220203110491"></p>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203122553.png" alt="image-20200220203122553"></p>
+<h2 id="配置yum-hdp虚拟机"><a href="#配置yum-hdp虚拟机" class="headerlink" title="配置yum.hdp虚拟机"></a>配置yum.hdp虚拟机</h2><h3 id="配置静态IP"><a href="#配置静态IP" class="headerlink" title="配置静态IP"></a>配置静态IP</h3><ul>
+<li>打开文件：vi /etc/sysconfig/network-scripts/ifcfg-ens192</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203240722.png" alt="image-20200220203240722"></p>
+<ul>
+<li>重启：service network start</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203311168.png" alt="image-20200220203311168"></p>
+<ul>
+<li>查看：ifconfig【安装命令：yum -y install net-tools】</li>
+</ul>
+<h3 id="防火墙设置"><a href="#防火墙设置" class="headerlink" title="防火墙设置"></a>防火墙设置</h3><ul>
+<li>查看防火墙的状态：systemctl status firewalld.service</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203726175.png" alt="image-20200220203726175"></p>
+<ul>
+<li>关闭防火墙：systemctl stop firewalld.service</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203751452.png" alt="image-20200220203751452"></p>
+<ul>
+<li>设置开机不启动：systemctl disable firewalld.service</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203847349.png" alt="image-20200220203847349"></p>
+<ul>
+<li>查看防火墙服务是否设置开机启动：systemctl is-enabled firewalld.service</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203917637.png" alt="image-20200220203917637"></p>
+<h3 id="设置hostname"><a href="#设置hostname" class="headerlink" title="设置hostname"></a>设置hostname</h3><ul>
+<li>设置hosts：vi /etc/hosts</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204121994.png" alt="image-20200220204121994"></p>
+<ul>
+<li>修改：vi /etc/sysconfig/network</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204157475.png" alt="image-20200220204157475"></p>
+<ul>
+<li>执行：hostnamectl set-hostname yum.hdp</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204208509.png" alt="image-20200220204208509"></p>
+<h3 id="安装时间同步服务（ntp）"><a href="#安装时间同步服务（ntp）" class="headerlink" title="安装时间同步服务（ntp）"></a>安装时间同步服务（ntp）</h3><ul>
+<li><p>安装：yum install -y ntp</p>
+</li>
+<li><p>启动并查看状态：</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start ntpd.service</span><br><span class="line">systemctl status ntpd.service</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204341095.png" alt="image-20200220204341095"></p>
+<ul>
+<li>设置开机自启：systemctl enable ntpd.service</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204349178.png" alt="image-20200220204349178"></p>
+<h3 id="安装并配置JDK"><a href="#安装并配置JDK" class="headerlink" title="安装并配置JDK"></a>安装并配置JDK</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar –xvzf jdk-8u221-linux-x64.tar.gz</span><br><span class="line"> </span><br><span class="line">vi /etc/profile</span><br><span class="line">export JAVA_HOME=/opt/jdk1.8.0_221</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">source /etc/profile</span><br><span class="line"> </span><br><span class="line">java -version</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装并配置scala"><a href="#安装并配置scala" class="headerlink" title="安装并配置scala"></a>安装并配置scala</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar –xvzf scala-2.11.12.tgz</span><br><span class="line"> </span><br><span class="line">vi /etc/profile</span><br><span class="line">export SCALA_HOME=/opt/scala-2.11.12</span><br><span class="line">export PATH=$PATH:$SCALA_HOME/bin</span><br><span class="line">source /etc/profile</span><br><span class="line"> </span><br><span class="line">scala -version</span><br></pre></td></tr></table></figure>
+
+<h3 id="关闭Selinux和THP（如果不关闭THP，Hadoop的系统CPU使用率很高）"><a href="#关闭Selinux和THP（如果不关闭THP，Hadoop的系统CPU使用率很高）" class="headerlink" title="关闭Selinux和THP（如果不关闭THP，Hadoop的系统CPU使用率很高）"></a>关闭Selinux和THP（如果不关闭THP，Hadoop的系统CPU使用率很高）</h3><ul>
+<li>查看状态：sestatus</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204627146.png" alt="image-20200220204627146"></p>
+<ul>
+<li>关闭：vim /etc/sysconfig/selinux</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204649551.png" alt="image-20200220204649551"></p>
+<ul>
+<li>如果出现下述结果说明启动了THP</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204703098.png" alt="image-20200220204703098"></p>
+<ul>
+<li>永久关闭：vim /etc/rc.d/rc.local</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">if test -f /sys/kernel/mm/transparent_hugepage/enabled; then</span><br><span class="line">        echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled</span><br><span class="line">fi</span><br><span class="line">if test -f /sys/kernel/mm/transparent_hugepage/defrag; then</span><br><span class="line">        echo never &gt; /sys/kernel/mm/transparent_hugepage/defrag</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204715380.png" alt="image-20200220204715380"></p>
+<ul>
+<li>保存退出，然后赋予rc.local文件执行权限：chmod +x /etc/rc.d/rc.local</li>
+<li>重启：reboot</li>
+</ul>
+<h3 id="最大打开文件要求"><a href="#最大打开文件要求" class="headerlink" title="最大打开文件要求"></a>最大打开文件要求</h3><ul>
+<li>建议的最大打开文件描述符数为10000或更多。</li>
+<li>修改配置文件 vi /etc/security/limits.conf</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">*       soft    nofile  65535</span><br><span class="line">*       hard    nofile  65535</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204746159.png" alt="image-20200220204746159"></p>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204753727.png" alt="image-20200220204753727"></p>
+<h2 id="克隆yum-hdp虚拟机"><a href="#克隆yum-hdp虚拟机" class="headerlink" title="克隆yum.hdp虚拟机"></a>克隆yum.hdp虚拟机</h2><h3 id="开始克隆"><a href="#开始克隆" class="headerlink" title="开始克隆"></a>开始克隆</h3><ul>
+<li>克隆另外三台虚拟机：yum.hdp、nd-00.hdp、nd-01.hdp、nd-02.hdp</li>
+</ul>
+<h3 id="修改参数"><a href="#修改参数" class="headerlink" title="修改参数"></a>修改参数</h3><ul>
+<li>启动nd-00.hdp，nd-01.hdp，nd-02.hdp虚拟机，并修改虚拟机的IP地址</li>
+<li>vi /etc/sysconfig/network-scripts/ifcfg-ens192</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204933844.png" alt="image-20200220204933844"></p>
+<ul>
+<li>重启network：service network start</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204946224.png" alt="image-20200220204946224"></p>
+<ul>
+<li>修改虚拟机hostname：vi /etc/sysconfig/network</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205002542.png" alt="image-20200220205002542"></p>
+<ul>
+<li>修改虚拟机hostname：hostnamectl set-hostname nd-00.hdp</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205015834.png" alt="image-20200220205015834"></p>
+<ul>
+<li>关闭虚拟机，并重新分配内存</li>
+</ul>
+<h3 id="在nd-00-hdp虚拟机上安装mysql"><a href="#在nd-00-hdp虚拟机上安装mysql" class="headerlink" title="在nd-00.hdp虚拟机上安装mysql"></a>在nd-00.hdp虚拟机上安装mysql</h3><ul>
+<li><p>下载并安装mysql【yum install wget】</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -i -c http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm</span><br><span class="line">yum -y install mysql57-community-release-el7-10.noarch.rpm</span><br><span class="line">yum -y install mysql-community-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动mysql并设置开机自启</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start mysqld.service    # 启动mysql</span><br><span class="line">systemctl status mysqld.service  # 查看mysql状态</span><br><span class="line">systemctl stop mysqld.service   # 关闭mysql</span><br><span class="line">systemctl enable mysqld.service   # 开机自启</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205154210.png" alt="image-20200220205154210"></p>
+<ul>
+<li>此时MySQL已经开始正常运行，不过要想进入MySQL还得先找出此时root用户的密码，通过如下命令可以在日志文件中找出密码：cat /var/log/mysqld.log | grep pass</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205203712.png" alt="image-20200220205203712"></p>
+<ul>
+<li>输入初始密码，此时不能做任何事情，因为MySQL默认必须修改密码之后才能操作数据库</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">set global validate_password_policy=0;</span><br><span class="line">set global validate_password_length=1;</span><br><span class="line">ALTER USER 'root'@'localhost' IDENTIFIED BY 'root123';</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205214164.png" alt="image-20200220205214164"></p>
+<ul>
+<li>但此时还有一个问题，就是因为安装了Yum Repository，以后每次yum操作都会自动更新，需要把这个卸载掉</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum -y remove mysql57-community-release-el7-10.noarch</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>配置mysql编码，字符格式：vim /etc/my.cnf</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">在[mysqld]下添加</span><br><span class="line">collation_server=utf8_general_ci</span><br><span class="line">character_set_server=utf8</span><br><span class="line">default-storage-engine=INNODB</span><br><span class="line">在[client]下添加（如果没有[client]，则创建）</span><br><span class="line">default_character-set=utf8</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205230941.png" alt="image-20200220205230941"></p>
+<ul>
+<li>重启mysql服务：systemctl restart mysqld.service</li>
+<li>查看字符集： show variables like ‘character_set_%’ ;</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205239792.png" alt="image-20200220205239792"></p>
+<h3 id="在mysql数据库创建相应的用户和DB"><a href="#在mysql数据库创建相应的用户和DB" class="headerlink" title="在mysql数据库创建相应的用户和DB"></a>在mysql数据库创建相应的用户和DB</h3><ul>
+<li>创建ambari数据库及数据库的用户名和密码</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">set global validate_password_policy=0;</span><br><span class="line">set global validate_password_length=1;</span><br><span class="line">create database ambari character set utf8;</span><br><span class="line">CREATE USER 'ambari'@'%'IDENTIFIED BY 'Ambari123';</span><br><span class="line">GRANT ALL PRIVILEGES ON ambari.* TO 'ambari'@'%';</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205516910.png" alt="image-20200220205516910"></p>
+<ul>
+<li>创建hive数据库及hive库的用户名和密码</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">create database hive character set utf8;</span><br><span class="line">CREATE USER 'hive'@'%'IDENTIFIED BY 'Hive123';</span><br><span class="line">GRANT ALL PRIVILEGES ON hive.* TO 'hive'@'%';</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205531051.png" alt="image-20200220205531051"></p>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205541563.png" alt="image-20200220205541563"></p>
+<ul>
+<li>下载mysql-connection-java：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install mysql-connector-java</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看下载后的jar包，看目录中是否有mysql-connector-java:</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ls /usr/share/java/mysql-connector-java.jar</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205552949.png" alt="image-20200220205552949"></p>
+<h3 id="免密登录"><a href="#免密登录" class="headerlink" title="免密登录"></a>免密登录</h3><ul>
+<li>配置本地hosts文件</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205653230.png" alt="image-20200220205653230"></p>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205708704.png" alt="image-20200220205708704"></p>
+<ul>
+<li>nd-00.hdp ⇒ 00，01，02的免密登录：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@nd-00 ~]# ssh-keygen -t rsa        # 一路回车</span><br><span class="line">[root@nd-00 ~]# ssh-copy-id nd-00.hdp    # 输入密码</span><br><span class="line">[root@nd-00 ~]# ssh-copy-id nd-01.hdp    # 输入密码</span><br><span class="line">[root@nd-00 ~]# ssh-copy-id nd-02.hdp    # 输入密码</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>nd-01.hdp ⇒ 01，02的免密登录：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@nd-01 ~]# ssh-keygen -t rsa        # 一路回车</span><br><span class="line">[root@nd-01 ~]# ssh-copy-id nd-01.hdp    # 输入密码</span><br><span class="line">[root@nd-01 ~]# ssh-copy-id nd-02.hdp    # 输入密码</span><br></pre></td></tr></table></figure>
+
+<h1 id="在yum-hdp上安装Ambari"><a href="#在yum-hdp上安装Ambari" class="headerlink" title="在yum.hdp上安装Ambari"></a>在yum.hdp上安装Ambari</h1><h2 id="安装yum相关工具"><a href="#安装yum相关工具" class="headerlink" title="安装yum相关工具"></a>安装yum相关工具</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@yum ~]# yum install yum-utils -y</span><br><span class="line">[root@yum ~]# yum repolist</span><br><span class="line">[root@yum ~]# yum install createrepo -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装Apache-httpd"><a href="#安装Apache-httpd" class="headerlink" title="安装Apache httpd"></a>安装Apache httpd</h2><ul>
+<li>上传下载文件hdp-3.1.4（借助xftp工具）</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205840641.png" alt="image-20200220205840641"></p>
+<ul>
+<li>使用yum在线安装httpd</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install httpd -y</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动httpd服务：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start httpd        # 启动httpd</span><br><span class="line">systemctl status httpd        # 查看httpd状态</span><br><span class="line">systemctl enable httpd        # 设置httpd开机自启</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205853444.png" alt="image-20200220205853444"></p>
+<ul>
+<li>默认端口80，浏览器输入：<a href="http://yum.hdp" target="_blank" rel="noopener">http://yum.hdp</a></li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205906904.png" alt="image-20200220205906904"></p>
+<ul>
+<li>httpd 会生成 /var/www/html目录（相当于Tomcat的webapps目录），进入到/var/www/html目录下，创建ambari和hdp目录，用来存放安装文件。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir /var/www/html/ambari</span><br><span class="line">mkdir /var/www/html/hdp</span><br><span class="line">mkdir /var/www/html/hdp/HDP-UTILS-1.1.0.22</span><br><span class="line">mkdir /var/www/html/hdp/HDP-GPL-3.1.4.0</span><br><span class="line">tar -zxvf ambari-2.7.4.0-centos7.tar.gz -C /var/www/html/ambari/</span><br><span class="line">tar -zxvf HDP-3.1.4.0-centos7-rpm.tar.gz -C /var/www/html/hdp/</span><br><span class="line">tar -zxvf HDP-UTILS-1.1.0.22-centos7.tar.gz -C /var/www/html/hdp/HDP-UTILS-1.1.0.22/</span><br><span class="line">tar -zxvf HDP-GPL-3.1.4.0-centos7-gpl.tar.gz -C /var/www/html/hdp/HDP-GPL-3.1.4.0/</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205924855.png" alt="image-20200220205924855"></p>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205934705.png" alt="image-20200220205934705"></p>
+<h2 id="配置本地-Repo"><a href="#配置本地-Repo" class="headerlink" title="配置本地 Repo"></a>配置本地 Repo</h2><h3 id="配置Ambari"><a href="#配置Ambari" class="headerlink" title="配置Ambari"></a>配置Ambari</h3><ul>
+<li>修改配置文件：ambari.repo</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">VERSION_NUMBER=2.7.4.0-118</span></span><br><span class="line">[ambari-2.7.4.0]</span><br><span class="line"><span class="meta">#</span><span class="bash">json.url = http://public-repo-1.hortonworks.com/HDP/hdp_urlinfo.json</span></span><br><span class="line">name=ambari Version - ambari-2.7.4.0</span><br><span class="line">baseurl=http://yum.hdp/ambari/ambari/centos7/2.7.4.0-118</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://yum.hdp/ambari/ambari/centos7/2.7.4.0-118/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins</span><br><span class="line">enabled=1</span><br><span class="line">priority=1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>配置HDP、HDP-UTILS、HDP-GPL</li>
+<li>修改配置文件：hdp.repo</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">VERSION_NUMBER=3.1.4.0-315</span></span><br><span class="line">[HDP-3.1.4.0]</span><br><span class="line">name=HDP Version - HDP-3.1.4.0</span><br><span class="line">baseurl=http://yum.hdp/hdp/HDP/centos7</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://yum.hdp/hdp/HDP/centos7/3.1.4.0-315/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins</span><br><span class="line">enabled=1</span><br><span class="line">priority=1</span><br><span class="line"></span><br><span class="line">[HDP-UTILS-1.1.0.22]</span><br><span class="line">name=HDP-UTILS Version - HDP-UTILS-1.1.0.22</span><br><span class="line">baseurl=http://yum.hdp/hdp/HDP-UTILS-1.1.0.22</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://yum.hdp/hdp/HDP-UTILS-1.1.0.22/HDP-UTILS/centos7/1.1.0.22/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins</span><br><span class="line">enabled=1</span><br><span class="line">priority=1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改配置文件：hdp.gpl.repo</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">VERSION_NUMBER=3.1.4.0-315</span></span><br><span class="line">[HDP-GPL-3.1.4.0]</span><br><span class="line">name=HDP-GPL Version - HDP-GPL-3.1.4.0</span><br><span class="line">baseurl=http://yum.hdp/hdp/HDP-GPL-3.1.4.0</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://yum.hdp/hdp/HDP-GPL-3.1.4.0/HDP-GPL/centos7/3.1.4.0-315/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins</span><br><span class="line">enabled=1</span><br><span class="line">priority=1</span><br></pre></td></tr></table></figure>
+
+<h3 id="分发ambari-repo和hdp-repo、hdp-gpl-repo"><a href="#分发ambari-repo和hdp-repo、hdp-gpl-repo" class="headerlink" title="分发ambari.repo和hdp.repo、hdp.gpl.repo"></a>分发ambari.repo和hdp.repo、hdp.gpl.repo</h3><ul>
+<li>repo文件放到/etc/yum.repos.d</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220210120836.png" alt="image-20200220210120836"></p>
+<ul>
+<li>把repo文件分发到各个节点的相同目录下</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp ambari.repo hdp.repo hdp.gpl.repo nd-00.hdp:$PWD</span><br><span class="line">scp ambari.repo hdp.repo hdp.gpl.repo nd-01.hdp:$PWD</span><br><span class="line">scp ambari.repo hdp.repo hdp.gpl.repo nd-02.hdp:$PWD</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成本地源"><a href="#生成本地源" class="headerlink" title="生成本地源"></a>生成本地源</h3><ul>
+<li>使用createrepo命令，创建yum本地源（软件仓库），即为存放本地特定位置的众多rpm包建立索引，描述各包所需依赖信息，并形成元数据。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">createrepo /var/www/html/hdp/HDP/centos7/</span><br><span class="line">createrepo /var/www/html/hdp/HDP-UTILS-1.1.0.22/</span><br><span class="line">createrepo /var/www/html/hdp/HDP-GPL-3.1.4.0/</span><br><span class="line">createrepo /var/www/html/ambari/ambari/centos7/2.7.4.0-118/</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装Ambari-Server"><a href="#安装Ambari-Server" class="headerlink" title="安装Ambari-Server"></a>安装Ambari-Server</h1><h2 id="nd-00-hdp-节点安装"><a href="#nd-00-hdp-节点安装" class="headerlink" title="nd-00.hdp 节点安装"></a>nd-00.hdp 节点安装</h2><ul>
+<li>安装ambari-server</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install ambari-server</span><br><span class="line">ambari-server setup</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(base) -bash-4.2# ambari-server setup</span><br><span class="line">Using python  /usr/bin/python</span><br><span class="line">Setup ambari-server</span><br><span class="line">Checking SELinux...</span><br><span class="line">SELinux status is 'disabled'</span><br><span class="line">Customize user account for ambari-server daemon [y/n] (n)? y</span><br><span class="line">Enter user account for ambari-server daemon (root):root</span><br><span class="line">Adjusting ambari-server permissions and ownership...</span><br><span class="line">Checking firewall status...</span><br><span class="line">Checking JDK...</span><br><span class="line">[1] Oracle JDK 1.8 + Java Cryptography Extension (JCE) Policy Files 8</span><br><span class="line">[2] Custom JDK</span><br><span class="line">==============================================================================</span><br><span class="line">Enter choice (1): 2</span><br><span class="line">WARNING: JDK must be installed on all hosts and JAVA_HOME must be valid on all hosts.</span><br><span class="line">WARNING: JCE Policy files are required for configuring Kerberos security. If you plan to use Kerberos,please make sure JCE Unlimited Strength Jurisdiction Policy Files are valid on all hosts.</span><br><span class="line">Path to JAVA_HOME: /opt/jdk1.8.0_221</span><br><span class="line">Validating JDK on Ambari Server...done.</span><br><span class="line">Check JDK version for Ambari Server...</span><br><span class="line">JDK version found: 8</span><br><span class="line">Minimum JDK version is 8 for Ambari. Skipping to setup different JDK for Ambari Server.</span><br><span class="line">Checking GPL software agreement...</span><br><span class="line">GPL License for LZO: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html</span><br><span class="line">Enable Ambari Server to download and install GPL Licensed LZO packages [y/n] (n)? y</span><br><span class="line">Completing setup...</span><br><span class="line">Configuring database...</span><br><span class="line">Enter advanced database configuration [y/n] (n)? y</span><br><span class="line">Configuring database...</span><br><span class="line">==============================================================================</span><br><span class="line">Choose one of the following options:</span><br><span class="line">[1] - PostgreSQL (Embedded)</span><br><span class="line">[2] - Oracle</span><br><span class="line">[3] - MySQL / MariaDB</span><br><span class="line">[4] - PostgreSQL</span><br><span class="line">[5] - Microsoft SQL Server (Tech Preview)</span><br><span class="line">[6] - SQL Anywhere</span><br><span class="line">[7] - BDB</span><br><span class="line">==============================================================================</span><br><span class="line">Enter choice (1): 3</span><br><span class="line">Hostname (localhost): nd-00</span><br><span class="line">Port (3306): 3306</span><br><span class="line">Database name (ambari): </span><br><span class="line">Username (ambari): </span><br><span class="line">Enter Database Password (bigdata):     #密码不显示：Ambari123</span><br><span class="line">Re-enter password: </span><br><span class="line">Configuring ambari database...</span><br><span class="line">Should ambari use existing default jdbc /usr/share/java/mysql-connector-java.jar [y/n] (y)? y</span><br><span class="line">Configuring remote database connection properties...</span><br><span class="line">WARNING: Before starting Ambari Server, you must run the following DDL directly from the database shell to create the schema: /var/lib/ambari-server/resources/Ambari-DDL-MySQL-CREATE.sql</span><br><span class="line">Proceed with configuring remote database connection properties [y/n] (y)? y</span><br><span class="line">Extracting system views...</span><br><span class="line">ambari-admin-2.7.4.0.118.jar</span><br><span class="line">....</span><br><span class="line">Ambari repo file contains latest json url http://public-repo-1.hortonworks.com/HDP/hdp_urlinfo.json, updating stacks repoinfos with it...</span><br><span class="line">Adjusting ambari-server permissions and ownership...</span><br><span class="line">Ambari Server 'setup' completed successfully.</span><br><span class="line">(base) -bash-4.2#</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用root登录，设置允许远程登录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line">set global validate_password_policy=0;</span><br><span class="line">set global validate_password_length=1;</span><br><span class="line">GRANT ALL PRIVILEGES ON ambari.* TO 'ambari'@'localhost' IDENTIFIED BY 'Ambari123';</span><br><span class="line">GRANT ALL PRIVILEGES ON ambari.* TO 'ambari'@'%' IDENTIFIED BY 'Ambari123';</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用ambari登录</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220210351496.png" alt="image-20200220210351496"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> <span class="built_in">source</span> /var/lib/ambari-server/resources/Ambari-DDL-MySQL-CREATE.sql;</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 执行完，查看有无报错信息，并查看数据表</span></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> show tables;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220210403897.png" alt="image-20200220210403897"></p>
+<h2 id="启动Ambari-Server"><a href="#启动Ambari-Server" class="headerlink" title="启动Ambari-Server"></a>启动Ambari-Server</h2><ul>
+<li>如果启动失败，关闭服务【ambari-server stop】，重新启动</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(base) -bash-4.2# ambari-server start</span><br><span class="line">Using python  /usr/bin/python</span><br><span class="line">Starting ambari-server</span><br><span class="line">Ambari Server running with administrator privileges.</span><br><span class="line">Organizing resource files at /var/lib/ambari-server/resources...</span><br><span class="line">Ambari database consistency check started...</span><br><span class="line">Server PID at: /var/run/ambari-server/ambari-server.pid</span><br><span class="line">Server out at: /var/log/ambari-server/ambari-server.out</span><br><span class="line">Server log at: /var/log/ambari-server/ambari-server.log</span><br><span class="line">Waiting for server start................................</span><br><span class="line">Server started listening on 8080</span><br><span class="line"></span><br><span class="line">DB configs consistency check: no errors and warnings were found.</span><br><span class="line">Ambari Server 'start' completed successfully.</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装Agent"><a href="#安装Agent" class="headerlink" title="安装Agent"></a>安装Agent</h2><ul>
+<li>nd-00/01/02.hdp 所有节点安装ambari-agent</li>
+</ul>
+<p><code>yum -y install ambari-agent</code></p>
+<h2 id="访问Ambari-web页面"><a href="#访问Ambari-web页面" class="headerlink" title="访问Ambari web页面"></a>访问Ambari web页面</h2><p>默认端口8080，Username：admin；Password：admin；<a href="http://192.168.121.100:8080" target="_blank" rel="noopener">http://192.168.121.100:8080</a></p>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220210612837.png" alt="image-20200220210612837"></p>
+<h1 id="开始安装集群"><a href="#开始安装集群" class="headerlink" title="开始安装集群"></a>开始安装集群</h1><ul>
+<li>配置集群名称</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211102777.png" alt="image-20200220211102777"></p>
+<ul>
+<li>选择版本</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211115145.png" alt="image-20200220211115145"></p>
+<ul>
+<li>配置节点、密钥</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211127892.png" alt="image-20200220211127892"></p>
+<ul>
+<li>主机确认</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211139211.png" alt="image-20200220211139211"></p>
+<ul>
+<li>选择大数据组件</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211148792.png" alt="image-20200220211148792"></p>
+<ul>
+<li>节点分配</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211157937.png" alt="image-20200220211157937"></p>
+<ul>
+<li>分配从属和客户端</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211206645.png" alt="image-20200220211206645"></p>
+<ul>
+<li>定制服务</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211215821.png" alt="image-20200220211215821"></p>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211224207.png" alt="image-20200220211224207"></p>
+<p><code>ambari-server setup --jdbc-db=mysql --jdbc-driver=/usr/share/java/mysql-connector-java.jar</code></p>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211233909.png" alt="image-20200220211233909"></p>
+<ul>
+<li>集群整体概况，点击部署</li>
+</ul>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211245700.png" alt="image-20200220211245700"></p>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211259349.png" alt="image-20200220211259349"></p>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211311916.png" alt="image-20200220211311916"></p>
+<ul>
+<li><p>等待启动完毕，不用担心警告，后期可以调整，搭建完成，可以在展示页面进行查看集群状态。</p>
+</li>
+<li><p>可以查看监控界面，可以看到大数据组件中出现错误，单个组件点开处理，由于本次搭建集群使用虚拟机，性能不好，可以少选择一些组件。</p>
+</li>
+</ul>
+<h1 id="安装问题整理"><a href="#安装问题整理" class="headerlink" title="安装问题整理"></a>安装问题整理</h1><h2 id="python-版本问题"><a href="#python-版本问题" class="headerlink" title="python 版本问题"></a>python 版本问题</h2><ul>
+<li>python3环境运行报错，改成python2</li>
+</ul>
+<p><code>vi /usr/bin/hdp-select</code></p>
+<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211348465.png" alt="image-20200220211348465"></p>
+<h2 id="openssl版本的问题："><a href="#openssl版本的问题：" class="headerlink" title="openssl版本的问题："></a>openssl版本的问题：</h2><ul>
+<li>EOF occurred in violation of protocol</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">INFO 2018-08-09 16:39:42,666 NetUtil.py:70 - Connecting to https://xxxx:8440/ca</span><br><span class="line">ERROR 2018-08-09 16:39:42,669 NetUtil.py:96 - EOF occurred in violation of protocol (_ssl.c:579)</span><br><span class="line">ERROR 2018-08-09 16:39:42,669 NetUtil.py:97 - SSLError: Failed to connect. Please check openssl library versions.</span><br><span class="line">Refer to: https://bugzilla.redhat.com/show_bug.cgi?id=1022468 for more details.</span><br><span class="line">WARNING 2018-08-09 16:39:42,669 NetUtil.py:124 - Server at https://xxxx:8440 is not reachable, sleeping for 10 seconds...</span><br><span class="line">INFO 2018-08-09 16:39:52,669 NetUtil.py:70 - Connecting to https://xxxx:8440/ca</span><br><span class="line">ERROR 2018-08-09 16:39:52,672 NetUtil.py:96 - EOF occurred in violation of protocol (_ssl.c:579)</span><br><span class="line">ERROR 2018-08-09 16:39:52,672 NetUtil.py:97 - SSLError: Failed to connect. Please check openssl library versions.</span><br><span class="line">Refer to: https://bugzilla.redhat.com/show_bug.cgi?id=1022468 for more details.</span><br><span class="line">WARNING 2018-08-09 16:39:52,672 NetUtil.py:124 - Server at https://xxxx:8440 is not reachable, sleeping for 10 seconds...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在集群中所有的节点中修改配置文件, 更改协议.<code>vi /etc/ambari-agent/conf/ambari-agent.ini</code>中加入</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[security]</span><br><span class="line">force_https_protocol=PROTOCOL_TLSv1_2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>然后重启ambari-agent.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>环境搭建</category>
+      </categories>
+      <tags>
+        <tag>Ambari</tag>
+        <tag>大数据</tag>
+        <tag>Centos7</tag>
+        <tag>HDP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ChainLink、预言机与两个世界的连接</title>
     <url>/2020/02/20/ChainLink-the-oracle-connecting-the-two-worlds/</url>
     <content><![CDATA[<p>互联网诞生之后，人们有现实世界，也有了互联网世界。如今，人们又有了一个新的世界：加密世界。这是区块链带给人们的礼物。</p>
@@ -78,7 +552,7 @@ ChainLink目前以太坊为主构建，未来也会支持其他智能合约平�
         <tag>区块链</tag>
         <tag>预言机</tag>
         <tag>ChainLink</tag>
-        <tag>defi</tag>
+        <tag>DeFi</tag>
       </tags>
   </entry>
 </search>
