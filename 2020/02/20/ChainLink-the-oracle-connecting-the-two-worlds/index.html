@@ -1024,6 +1024,7 @@ ChainLink目前以太坊为主构建，未来也会支持其他智能合约平�
 
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
   <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="/js/src/md5.min.js"></script>
    <script type="text/javascript">
         var gitalk = new Gitalk({
           clientID: 'cbdf98e386888ca683a5',
@@ -1031,7 +1032,7 @@ ChainLink目前以太坊为主构建，未来也会支持其他智能合约平�
           repo: 'lich.site',
           owner: 'tokgolich',
           admin: ['tokgolich'],
-          id: '<%= page.date %>',
+          id: md5(location.pathname),
           distractionFreeMode: 'true'
         })
         gitalk.render('gitalk-container')           
