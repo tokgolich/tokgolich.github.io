@@ -1,6 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Spark On Yarn原理</title>
+    <url>/2020/02/21/Spark-On-Yarn%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h1 id="Spark-资源管理架构"><a href="#Spark-资源管理架构" class="headerlink" title="Spark 资源管理架构"></a>Spark 资源管理架构</h1><p>首先介绍 Spark 的资源管理架构。Spark 集群考虑到了未来对接一些更强大的资源管理系统（如 Yarn、Mesos 等）没有在资源管理的设计上对外封闭，所以Spark 架构设计时将资源管理抽象出了一层，通过这种抽象能够构建一种插件式的资源管理模块。</p>
+ <a id="more"></a>
+
+<img src="/2020/02/21/Spark-On-Yarn%E5%8E%9F%E7%90%86/image-20200221231422026.png" alt="image-20200221231422026" style="zoom:50%;">
+
+<p>如图所示是 Spark 的资源管理架构图。Master 是 Spark 的 主控节点，在实际的生产环境中会有多个 Master，只有一个 Master 处于 active 状态。Worker 是 Spark 的工作节点，向 Master 汇报自身的资源、Executeor 执行状态的改变，并接受 Master 的命令启动 Executor 或 Driver。Driver 是应用程序的驱动程序，每个应用包括许多小任务，Driver 负责推动这些小任务的有序执行。Executor 是 Spark 的工作进程，由 Worker 监管，负责具体任务的执行。</p>
+<p>以上就是 Spark 在资源管理上的抽象出来的架构，这个架构跟 Yarn 的架构十分相似，因此 Spark 很容易地构建于 Yarn 之上。在 Spark 和 Yarn 两边的角色对比中：Master 和 ResourceManager 对应，Worker 和 NodeManager 对应，Driver 和 App Master 对应，Executor 和 Container 对应。</p>
+<p>根据 Spark 部署模式的不同资源管理架构也会有不同的形态。Spark 大致包括四种部署模式：</p>
+<ul>
+<li><strong>Local 模式</strong>：部署在同一个进程上，只有 Driver 角色。接受任务后创建 Driver 负责应用的调度执行，不涉及 Master 和 Worker；</li>
+<li><strong>Local-Cluster 模式</strong>：部署在同一个进程上，存在 Master 和 Worker 角色，它们作为独立线程存在于这个进程内；</li>
+<li><strong>Standalone 模式</strong>：Spark 真正的集群模式，在这个模式下 Master 和 Worker 是独立的进程；</li>
+<li><strong>第三方部署模式</strong>：构建于 Yarn 或 Mesos 之上，由它们提供资源管理。</li>
+</ul>
+<h1 id="Spark-on-Yarn"><a href="#Spark-on-Yarn" class="headerlink" title="Spark on Yarn"></a>Spark on Yarn</h1><h2 id="Spark-on-Yarn-Cluster"><a href="#Spark-on-Yarn-Cluster" class="headerlink" title="Spark on Yarn-Cluster"></a>Spark on Yarn-Cluster</h2><img src="/2020/02/21/Spark-On-Yarn%E5%8E%9F%E7%90%86/image-20200221231532301.png" alt="image-20200221231532301" style="zoom:80%;">
+
+<p>客户端提交一个任务给 Yarn ResourceManager 后，App Manager 接受任务并找到一个 Container 创建App Master，此时 App Master 上运行的是 Spark Driver。之后 App Master 申请 Container 并启动，Spark Driver 在 Container 上启动 Spark Executor，并调度 Spark Task 在 Spark Executor 上运行，等到所有的任务执行完毕后，向 App Manager 取消注册并释放资源。</p>
+<p>可以看出这个执行流程和 Yarn 对一个任务的处理过程几乎一致，不同的是在 Spark on Yarn 的 Job 处理过程中 App Master、Container 是交由 Spark 相对应的角色去处理的。</p>
+<h2 id="Spark-on-Yarn-Client"><a href="#Spark-on-Yarn-Client" class="headerlink" title="Spark on Yarn-Client"></a>Spark on Yarn-Client</h2><img src="/2020/02/21/Spark-On-Yarn%E5%8E%9F%E7%90%86/image-20200221231547333.png" alt="image-20200221231547333" style="zoom:80%;">
+
+<p>Spark on Yarn 还有另外一种运行模式：Spark on Yarn-Client。不同于上述的 Spark on Yarn-Cluster，Spark on Yarn-Client 的客户端在提交完任务之后不会将 Spark Driver 托管给 Yarn，而是在客户端运行。App Master 申请完 Container 之后同样也是由 Spark Driver 去启动 Spark Executor，执行任务。</p>
+<h2 id="yarn-cluster和yarn-client模式的区别"><a href="#yarn-cluster和yarn-client模式的区别" class="headerlink" title="yarn-cluster和yarn-client模式的区别"></a>yarn-cluster和yarn-client模式的区别</h2><p><strong>从广义上讲</strong>，yarn-cluster适用于生产环境；而yarn-client适用于交互和调试，也就是希望快速地看到application的输出。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">在我们介绍yarn-cluster和yarn-client的深层次的区别之前，我们先明白一个概念：Application Master。在YARN中，每个Application实例都有一个Application Master进程，它是Application启动的第一个容器。它负责和ResourceManager打交道，并请求资源。获取资源之后告诉NodeManager为其启动container。</span><br></pre></td></tr></table></figure>
+
+<p><strong>从深层次的含义讲</strong>，yarn-cluster和yarn-client模式的区别其实就是Application Master进程的区别，yarn-cluster模式下，driver运行在AM(Application Master)中，它负责向YARN申请资源，并监督作业的运行状况。当用户提交了作业之后，就可以关掉Client，作业会继续在YARN上运行。然而yarn-cluster模式不适合运行交互类型的作业。而yarn-client模式下，Application Master仅仅向YARN请求executor，client会和请求的container通信来调度他们工作，也就是说Client不能离开。</p>
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>Hadoop</category>
+        <category>Spark</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>Spark</tag>
+        <tag>Yarn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Yarn原理详解</title>
+    <url>/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="经典-MapReduce-的局限性"><a href="#经典-MapReduce-的局限性" class="headerlink" title="经典 MapReduce 的局限性"></a>经典 MapReduce 的局限性</h1><p>经典 MapReduce 的最严重的限制主要关系到可伸缩性、资源利用和对与 MapReduce 不同的工作负载的支持。在 MapReduce 框架中，作业执行受两种类型的进程控制：</p>
+<ul>
+<li>一个称为 <em>JobTracker</em> 的主要进程，它协调在集群上运行的所有作业，分配要在 <em>TaskTracker</em> 上运行的 map 和 reduce 任务。</li>
+<li>许多称为 <em>TaskTracker</em> 的下级进程，它们运行分配的任务并定期向 <em>JobTracker</em> 报告进度。</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="Apache-Hadoop-的经典版本-MRv1"><a href="#Apache-Hadoop-的经典版本-MRv1" class="headerlink" title="Apache Hadoop 的经典版本 (MRv1)"></a>Apache Hadoop 的经典版本 (MRv1)</h2><p><img src="/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230505637.png" alt="image-20200221230505637"></p>
+<p>大型的 Hadoop 集群显现出了由单个 JobTracker 导致的可伸缩性瓶颈。在集群中有 5,000 个节点和 40,000 个任务同时运行时，这样一种设计实际上就会受到限制。由于此限制，必须创建和维护更小的、功能更差的集群。</p>
+<p>此外，较小和较大的 Hadoop 集群都从未最高效地使用他们的计算资源。在 Hadoop MapReduce 中，每个从属节点上的计算资源由集群管理员分解为固定数量的 map 和 reduce slot，这些 slot 不可替代。设定 map slot 和 reduce slot 的数量后，节点在任何时刻都不能运行比 map slot 更多的 map 任务，即使没有 reduce 任务在运行。这影响了集群的利用率，因为在所有 map slot 都被使用（而且我们还需要更多）时，我们无法使用任何 reduce slot，即使它们可用，反之亦然。</p>
+<p>最后但同样重要的是，Hadoop 设计为仅运行 MapReduce 作业。随着替代性的编程模型（比如 Apache Giraph 所提供的图形处理）的到来，除 MapReduce 外，越来越需要为可通过高效的、公平的方式在同一个集群上运行并共享资源的其他编程模型提供支持。</p>
+<h1 id="为什么会有-Yarn-？"><a href="#为什么会有-Yarn-？" class="headerlink" title="为什么会有 Yarn ？"></a>为什么会有 Yarn ？</h1><p>直接的原因呢，就是因为 Hadoop1.0 中架构的缺陷，在 MapReduce 中，jobTracker 担负起了太多的责任了，接收任务是它，资源调度是它，监控 TaskTracker 运行情况还是它。这样实现的好处是比较简单，但相对的，就容易出现一些问题，比如常见的单点故障问题。</p>
+<p>要解决这些问题，只能将 jobTracker 进行拆分，将其中部分功能拆解出来。彼时业内已经有了一部分的资源管理框架，比如 mesos，于是照着这个思路，就开发出了 Yarn。这里多说个冷知识，其实 Spark 早期是为了推广 mesos 而产生的，这也是它名字的由来，不过后来反正是 Spark 火起来了。</p>
+<p>其实 Hadoop 能有今天这个地位，Yarn 可以说是功不可没。因为有了 Yarn ，更多计算框架可以接入到 Hdfs 中，而不单单是 MapReduce，到现在我们都知道，MapReduce 早已经被 Spark 等计算框架赶超，而 Hdfs 却依然屹立不倒。究其原因，正式因为 Yarn 的包容，使得其他计算框架能专注于计算性能的提升。Hdfs 可能不是最优秀的大数据存储系统，但却是应用最广泛的大数据存储系统，Yarn 功不可没。</p>
+<h1 id="YARN：下一代-Hadoop-计算平台"><a href="#YARN：下一代-Hadoop-计算平台" class="headerlink" title="YARN：下一代 Hadoop 计算平台"></a>YARN：下一代 Hadoop 计算平台</h1><p>以下名称的改动有助于更好地了解 YARN 的设计：</p>
+<ul>
+<li>ResourceManager 代替集群管理器</li>
+<li>ApplicationMaster 代替一个专用且短暂的 JobTracker</li>
+<li>NodeManager 代替 TaskTracker</li>
+<li>一个分布式应用程序代替一个 MapReduce 作业</li>
+</ul>
+<p>YARN 是下一代 Hadoop 计算平台，如下所示。</p>
+<h2 id="YARN-架构"><a href="#YARN-架构" class="headerlink" title="YARN 架构"></a>YARN 架构</h2><p><img src="/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230620139.png" alt="image-20200221230620139"></p>
+<p><img src="/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230631351.png" alt="image-20200221230631351"></p>
+<p>假设用户采用与 MRv1 中相同的方式键入 <code>hadoop jar</code> 命令，将应用程序提交到 ResourceManager。ResourceManager 维护在集群上运行的应用程序列表，以及每个活动的 NodeManager 上的可用资源列表。ResourceManager 需要确定哪个应用程序接下来应该获得一部分集群资源。该决策受到许多限制，比如队列容量、ACL 和公平性。ResourceManager 使用一个可插拔的 Scheduler。Scheduler 仅执行调度；它管理谁在何时获取集群资源（以容器的形式），但不会对应用程序内的任务执行任何监视，所以它不会尝试重新启动失败的任务。</p>
+<p>在 YARN 架构中，一个全局 ResourceManager 以主要后台进程的形式运行，它通常在专用机器上运行，在各种竞争的应用程序之间仲裁可用的集群资源。ResourceManager 会追踪集群中有多少可用的活动节点和资源，协调用户提交的哪些应用程序应该在何时获取这些资源。ResourceManager 是惟一拥有此信息的进程，所以它可通过某种共享的、安全的、多租户的方式制定分配（或者调度）决策（例如，依据应用程序优先级、队列容量、ACLs、数据位置等）。</p>
+<p>在用户提交一个应用程序时，一个称为 ApplicationMaster 的轻量型进程实例会启动来协调应用程序内的所有任务的执行。这包括监视任务，重新启动失败的任务，推测性地运行缓慢的任务，以及计算应用程序计数器值的总和。这些职责以前分配给所有作业的单个 JobTracker。ApplicationMaster 和属于它的应用程序的任务，在受 NodeManager 控制的资源容器中运行。</p>
+<p>NodeManager 是 TaskTracker 的一种更加普通和高效的版本。没有固定数量的 map 和 reduce slots，NodeManager 拥有许多动态创建的资源容器。容器的大小取决于它所包含的资源量，比如内存、CPU、磁盘和网络 IO。目前，仅支持内存和 CPU (YARN-3)。未来可使用 cgroups 来控制磁盘和网络 IO。一个节点上的容器数量，由配置参数与专用于从属后台进程和操作系统的资源以外的节点资源总量（比如总 CPU 数和总内存）共同决定。</p>
+<p>有趣的是，ApplicationMaster 可在容器内运行任何类型的任务。例如，MapReduce ApplicationMaster 请求一个容器来启动 map 或 reduce 任务，而 Giraph ApplicationMaster 请求一个容器来运行 Giraph 任务。您还可以实现一个自定义的 ApplicationMaster 来运行特定的任务，进而发明出一种全新的分布式应用程序框架，改变大数据世界的格局。您可以查阅 Apache Twill，它旨在简化 YARN 之上的分布式应用程序的编写。</p>
+<p>在 YARN 中，MapReduce 降级为一个分布式应用程序的一个角色（但仍是一个非常流行且有用的角色），现在称为 MRv2。MRv2 是经典 MapReduce 引擎（现在称为 MRv1）的重现，运行在 YARN 之上。</p>
+<h2 id="Container"><a href="#Container" class="headerlink" title="Container"></a><strong>Container</strong></h2><p>容器（Container）这个东西是 Yarn 对资源做的一层抽象。就像我们平时开发过程中，经常需要对底层一些东西进行封装，只提供给上层一个调用接口一样，Yarn 对资源的管理也是用到了这种思想。</p>
+<img src="/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230721971.png" alt="image-20200221230721971" style="zoom:80%;">
+
+<p>如上所示，Yarn 将CPU核数，内存这些计算资源都封装成为一个个的容器（Container）。需要注意两点：</p>
+<ul>
+<li>容器由 NodeManager 启动和管理，并被它所监控。</li>
+<li>容器被 ResourceManager 进行调度。</li>
+</ul>
+<p>NodeManager 和 ResourceManager 这两个组件会在下面讲到。</p>
+<h2 id="三个主要组件"><a href="#三个主要组件" class="headerlink" title="三个主要组件"></a><strong>三个主要组件</strong></h2><p>再看最上面的图，我们能直观发现的两个主要的组件是 <strong>ResourceManager</strong> 和 <strong>NodeManager</strong> ，但其实还有一个 <strong>ApplicationMaster</strong> 在图中没有直观显示。我们分别来看这三个组件。</p>
+<h3 id="ResourceManager"><a href="#ResourceManager" class="headerlink" title="ResourceManager"></a><strong>ResourceManager</strong></h3><p>我们先来说说上图中最中央的那个 ResourceManager（RM）。从名字上我们就能知道这个组件是负责资源管理的，整个系统有且只有一个 RM ，来负责资源的调度。它也包含了两个主要的组件：资源调度器(Scheduler)以及应用管理器(ApplicationManager)。</p>
+<ol>
+<li>资源调度器(Scheduler)：从本质上来说，资源调度器就是一种策略，或者说一种算法。当 Client 提交一个任务的时候，它会根据所需要的资源以及当前集群的资源状况进行分配。注意，它只负责向应用程序分配资源，并不做监控以及应用程序的状态跟踪。</li>
+<li>应用管理器(ApplicationManager)：同样，听名字就能大概知道它是干嘛的。应用管理器就是负责管理 Client 用户提交的应用。上面不是说到资源调度器（Scheduler）不对用户提交的程序监控嘛，其实啊，监控应用的工作正是由应用管理器（ApplicationManager）完成的。</li>
+</ol>
+<h3 id="ApplicationMaster"><a href="#ApplicationMaster" class="headerlink" title="ApplicationMaster"></a><strong>ApplicationMaster</strong></h3><p>每当 Client 提交一个 Application 时候，就会新建一个 ApplicationMaster 。由这个 ApplicationMaster 去与 ResourceManager 申请容器资源，获得资源后会将要运行的程序发送到容器上启动，然后进行分布式计算。</p>
+<p>这里可能有些难以理解，为什么是把运行程序发送到容器上去运行？如果以传统的思路来看，是程序运行着不动，然后数据进进出出不停流转。但当数据量大的时候就没法这么玩了，因为海量数据移动成本太大，时间太长。但是中国有一句老话<strong>山不过来，我就过去。</strong>大数据分布式计算就是这种思想，既然大数据难以移动，那我就把容易移动的应用程序发布到各个节点进行计算呗，这就是大数据分布式计算的思路。</p>
+<h3 id="NodeManager"><a href="#NodeManager" class="headerlink" title="NodeManager"></a><strong>NodeManager</strong></h3><p>NodeManager 是 ResourceManager 在每台机器的上代理，负责容器的管理，并监控他们的资源使用情况（cpu，内存，磁盘及网络等），以及向 ResourceManager/Scheduler 提供这些资源使用报告。</p>
+<h2 id="提交一个-Application-到-Yarn-的流程"><a href="#提交一个-Application-到-Yarn-的流程" class="headerlink" title="提交一个 Application 到 Yarn 的流程"></a><strong>提交一个 Application 到 Yarn 的流程</strong></h2><img src="/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230834987.png" alt="image-20200221230834987" style="zoom: 80%;">
+
+<p>这张图简单地标明了提交一个程序所经历的流程，接下来我们来具体说说每一步的过程。</p>
+<ol>
+<li>Client 向 Yarn 提交 Application，这里我们假设是一个 MapReduce 作业。</li>
+<li>ResourceManager 向 NodeManager 通信，为该 Application 分配第一个容器。并在这个容器中运行这个应用程序对应的 ApplicationMaster。</li>
+<li>ApplicationMaster 启动以后，对 作业（也就是 Application） 进行拆分，拆分 task 出来，这些 task 可以运行在一个或多个容器中。然后向 ResourceManager 申请要运行程序的容器，并定时向 ResourceManager 发送心跳。</li>
+<li>申请到容器后，ApplicationMaster 会去和容器对应的 NodeManager 通信，而后将作业分发到对应的 NodeManager 中的容器去运行，这里会将拆分后的 MapReduce 进行分发，对应容器中运行的可能是 Map 任务，也可能是 Reduce 任务。</li>
+<li>容器中运行的任务会向 ApplicationMaster 发送心跳，汇报自身情况。当程序运行完成后， ApplicationMaster 再向 ResourceManager 注销并释放容器资源。</li>
+</ol>
+<p>以上就是一个作业的大体运行流程。</p>
+<h2 id="可运行任何分布式应用程序的集群"><a href="#可运行任何分布式应用程序的集群" class="headerlink" title="可运行任何分布式应用程序的集群"></a>可运行任何分布式应用程序的集群</h2><p>ResourceManager、NodeManager 和容器都不关心应用程序或任务的类型。所有特定于应用程序框架的代码都转移到它的 ApplicationMaster，以便任何分布式框架都可以受 YARN 支持 — 只要有人为它实现了相应的 ApplicationMaster。</p>
+<p>得益于这个一般性的方法，Hadoop YARN 集群运行许多不同工作负载的梦想才得以实现。想像一下：您数据中心中的一个 Hadoop 集群可运行 MapReduce、Giraph、Storm、Spark、Tez/Impala、MPI 等。</p>
+<p>单一集群方法明显提供了大量优势，其中包括：</p>
+<ul>
+<li>更高的集群利用率，一个框架未使用的资源可由另一个框架使用</li>
+<li>更低的操作成本，因为只有一个 “包办一切的” 集群需要管理和调节</li>
+<li>更少的数据移动，无需在 Hadoop YARN 与在不同机器集群上运行的系统之间移动数据</li>
+</ul>
+<p>管理单个集群还会得到一个更环保的数据处理解决方案。使用的数据中心空间更少，浪费的硅片更少，使用的电源更少，排放的碳更少，这只是因为我们在更小但更高效的 Hadoop 集群上运行同样的计算。</p>
+]]></content>
+      <categories>
+        <category>大数据</category>
+        <category>Hadoop</category>
+      </categories>
+      <tags>
+        <tag>大数据</tag>
+        <tag>Yarn</tag>
+        <tag>Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>V2Ray一键安装脚本</title>
+    <url>/2020/02/21/V2Ray%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC/</url>
+    <content><![CDATA[<p><a href="https://github.com/233boy/v2ray/wiki/V2Ray%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC" target="_blank" rel="noopener">V2Ray一键安装脚本</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s -L https://git.io/v2ray.sh)</span><br></pre></td></tr></table></figure>
+
+ <a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">重要：建议用Debian系统，其他系统像Centos死活不会成功！</span><br><span class="line">如putty连接不上，可替换成xshell，勾选代理模式就可以连接被墙IP了，有的老铁说putty和xshell都不懂怎么办，那你可以到你vps管理界面后台，通过自带网页ssh，只是命令你要手敲，总会有办法的😂</span><br><span class="line">对了，我用V2Ray全局，一直可以连接被墙ip，有条件朋友可以试试</span><br><span class="line"> </span><br><span class="line">注意注意：有的老铁到域名解析那步，输入域名说为什么超时，因为你的IP被墙了，肯定超时，这一步Ping一下只是确认你的DNS解析成功，只要输入域名后显示的是你的IP，说明就可以进入下一步安装V2Ray了，不要傻傻等很多为什么还是超时，超时就对了，直接跟着视频下一步就没问题了！！！</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">V2Ray进阶篇2：V2Ray+Websocket+TLS+Cloudflare拯救被墙的IP，简单易懂，欢迎订阅点赞！</span><br><span class="line">经广大网友反馈实践，申请免费域名时最好挂美国VPN全局，非美国VPN会提示技术错误等原因，其他地区VPN不保证能成功！！！</span><br><span class="line"> </span><br><span class="line">视频涉及的网址（大多要翻墙&#x2F;开全局VPN打开）：</span><br><span class="line">Vultr-VPS官网：https:&#x2F;&#x2F;www.vultr.com&#x2F;?ref&#x3D;7145378</span><br><span class="line">PUTTY下载：https:&#x2F;&#x2F;www.chiark.greenend.org.uk&#x2F;~s...</span><br><span class="line">VPS更改北京时间：https:&#x2F;&#x2F;blog.csdn.net&#x2F;zx711166&#x2F;articl...</span><br><span class="line">ping检测官网：http:&#x2F;&#x2F;ping.chinaz.com&#x2F;</span><br><span class="line">免费域名申请：https:&#x2F;&#x2F;www.freenom.com&#x2F;zh （尽量挂美国代理）</span><br><span class="line">Cloudflare官网:https:&#x2F;&#x2F;www.cloudflare.com&#x2F;</span><br><span class="line">V2Ray脚本地址：https:&#x2F;&#x2F;ppig.xyz&#x2F;post&#x2F;5&#x2F;</span><br><span class="line"> </span><br><span class="line">V2Ray Windows客户端图形化界面地址：https:&#x2F;&#x2F;github.com&#x2F;2dust&#x2F;v2rayN&#x2F;releases</span><br><span class="line">V2Ray安卓客户端：https:&#x2F;&#x2F;github.com&#x2F;2dust&#x2F;v2rayNG&#x2F;releases</span><br><span class="line">V2Ray mac客户端：https:&#x2F;&#x2F;github.com&#x2F;Cenmrev&#x2F;V2RayX&#x2F;releases</span><br><span class="line">V2Ray苹果IOS客户a端安装：https:&#x2F;&#x2F;youtu.be&#x2F;jxBkhHGzWts</span><br><span class="line"> </span><br><span class="line">相关推荐</span><br><span class="line">V2Ray高级进阶篇1：Websocket+TLS+V2Ray的搭建:https:&#x2F;&#x2F;youtu.be&#x2F;AlJ4EQg_zQQ</span><br><span class="line"> </span><br><span class="line">欢迎订阅、点赞、加关注</span><br><span class="line">任何不明白的请留言！</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>外面的世界</category>
+      </categories>
+      <tags>
+        <tag>V2Ray</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python Jupyter服务搭建</title>
+    <url>/2020/02/21/Python-jupyter-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h2 id="生成一个-notebook-配置文件"><a href="#生成一个-notebook-配置文件" class="headerlink" title="生成一个 notebook 配置文件"></a>生成一个 notebook 配置文件</h2><p>默认情况下，配置文件 <code>~/.jupyter/jupyter_notebook_config.py</code>并不存在，需要自行创建。使用下列命令生成配置文件：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
+<p>执行成功后，会出现下面的信息：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Writing default config to: /root/.jupyter/jupyter_notebook_config.py</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="生成密码"><a href="#生成密码" class="headerlink" title="生成密码"></a>生成密码</h2><h3 id="自动生成"><a href="#自动生成" class="headerlink" title="自动生成"></a>自动生成</h3><p>从 jupyter notebook 5.0 版本开始，提供了一个命令来设置密码：<code>jupyter notebook password</code>，生成的密码存储在 <code>jupyter_notebook_config.json</code>。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> jupyter notebook password</span></span><br><span class="line">Enter password:  ****</span><br><span class="line">Verify password: ****</span><br><span class="line">[NotebookPasswordApp] Wrote hashed password to /Users/you/.jupyter/jupyter_notebook_config.json</span><br></pre></td></tr></table></figure>
+<h3 id="手动生成"><a href="#手动生成" class="headerlink" title="手动生成"></a>手动生成</h3><p>打开 ipython 执行下面内容：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">from</span> notebook.auth <span class="keyword">import</span> passwd</span><br><span class="line">In [<span class="number">2</span>]: passwd()</span><br><span class="line">Enter password:</span><br><span class="line">Verify password:</span><br><span class="line">Out[<span class="number">2</span>]: <span class="string">'sha1:295dc2c9f8ba:1dd06dd1b37b6feffe6d1adeef0c02186f645d9d'</span></span><br></pre></td></tr></table></figure>
+<p><code>sha1:295dc2c9f8ba:1dd06dd1b37b6feffe6d1adeef0c02186f645d9d</code>这一串就是要在 <code>jupyter_notebook_config.py</code>添加的密码。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">c.NotebookApp.password &#x3D; u&#39;sha1:295dc2c9f8ba:1dd06dd1b37b6feffe6d1adeef0c02186f645d9d&#39;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>在 <code>jupyter_notebook_config.py</code> 中找到下面的行，取消注释并修改。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c.NotebookApp.ip=<span class="string">'*'</span></span><br><span class="line">c.NotebookApp.password = <span class="string">u'sha1:295dc2c9f8ba:1dd06dd1b37b6feffe6d1adeef0c02186f645d9d'</span></span><br><span class="line">c.NotebookApp.open_browser = <span class="literal">False</span></span><br><span class="line">c.NotebookApp.port = <span class="number">9090</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="运行jupyter服务"><a href="#运行jupyter服务" class="headerlink" title="运行jupyter服务"></a>运行jupyter服务</h2><p>以上设置完以后就可以在服务器上启动 <code>jupyter-lab</code>, root 用户使用 <code>jupyter-lab --allow-root</code>。打开 <code>IP:指定的端口</code>, 输入密码就可以访问了。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 后台执行</span></span><br><span class="line">nohup jupyter-lab --allow-root &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Jupyter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Apache Ambari-2.7.4.0 Centos7离线安装</title>
     <url>/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="Ambari"><a href="#Ambari" class="headerlink" title="Ambari"></a>Ambari</h2><ul>

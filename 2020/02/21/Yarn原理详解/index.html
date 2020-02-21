@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="大数据,Yarn,Hadoop," />
 
 
 
@@ -86,18 +86,25 @@
 
 
 
-<meta name="description" content="Lich&#39;s Blog - 独孤皇帝的部落格">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lich&#39;s Blog">
-<meta property="og:url" content="https://lich.site/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/%E9%A2%84%E8%A8%80%E6%9C%BA/index.html">
+<meta name="description" content="经典 MapReduce 的局限性经典 MapReduce 的最严重的限制主要关系到可伸缩性、资源利用和对与 MapReduce 不同的工作负载的支持。在 MapReduce 框架中，作业执行受两种类型的进程控制：  一个称为 JobTracker 的主要进程，它协调在集群上运行的所有作业，分配要在 TaskTracker 上运行的 map 和 reduce 任务。 许多称为 TaskTracke">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Yarn原理详解">
+<meta property="og:url" content="https://lich.site/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Lich&#39;s Blog">
-<meta property="og:description" content="Lich&#39;s Blog - 独孤皇帝的部落格">
+<meta property="og:description" content="经典 MapReduce 的局限性经典 MapReduce 的最严重的限制主要关系到可伸缩性、资源利用和对与 MapReduce 不同的工作负载的支持。在 MapReduce 框架中，作业执行受两种类型的进程控制：  一个称为 JobTracker 的主要进程，它协调在集群上运行的所有作业，分配要在 TaskTracker 上运行的 map 和 reduce 任务。 许多称为 TaskTracke">
+<meta property="og:image" content="https://lich.site/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230505637.png">
+<meta property="og:image" content="https://lich.site/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230620139.png">
+<meta property="og:image" content="https://lich.site/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230631351.png">
+<meta property="og:image" content="https://lich.site/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230721971.png">
+<meta property="og:image" content="https://lich.site/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230834987.png">
+<meta property="article:published_time" content="2020-02-21T15:02:21.000Z">
+<meta property="article:modified_time" content="2020-02-21T15:18:36.396Z">
 <meta property="article:author" content="Lich">
-<meta property="article:tag" content="lich">
-<meta property="article:tag" content="site">
-<meta property="article:tag" content="blog">
-<meta property="article:tag" content="独孤皇帝">
+<meta property="article:tag" content="大数据">
+<meta property="article:tag" content="Yarn">
+<meta property="article:tag" content="Hadoop">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lich.site/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230505637.png">
 
 
 
@@ -127,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://lich.site/categories/区块链/预言机/"/>
+  <link rel="canonical" href="https://lich.site/2020/02/21/Yarn原理详解/"/>
 
 
 
 
 
-  <title>分类: 预言机 | Lich's Blog</title>
+  <title>Yarn原理详解 | Lich's Blog</title>
   
 
 
@@ -152,7 +159,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -290,55 +297,335 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>预言机<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lich.site/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lich">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lich's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/02/20/ChainLink-the-oracle-connecting-the-two-worlds/" itemprop="url">
-              
-                <span itemprop="name">ChainLink、预言机与两个世界的连接</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Yarn原理详解</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-20T17:08:34+08:00"
-              content="2020-02-20" >
-          02-20
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-21T23:02:21+08:00">
+                2020-02-21
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-02-21T23:18:36+08:00">
+                2020-02-21
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop/" itemprop="url" rel="index">
+                    <span itemprop="name">Hadoop</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="经典-MapReduce-的局限性"><a href="#经典-MapReduce-的局限性" class="headerlink" title="经典 MapReduce 的局限性"></a>经典 MapReduce 的局限性</h1><p>经典 MapReduce 的最严重的限制主要关系到可伸缩性、资源利用和对与 MapReduce 不同的工作负载的支持。在 MapReduce 框架中，作业执行受两种类型的进程控制：</p>
+<ul>
+<li>一个称为 <em>JobTracker</em> 的主要进程，它协调在集群上运行的所有作业，分配要在 <em>TaskTracker</em> 上运行的 map 和 reduce 任务。</li>
+<li>许多称为 <em>TaskTracker</em> 的下级进程，它们运行分配的任务并定期向 <em>JobTracker</em> 报告进度。</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="Apache-Hadoop-的经典版本-MRv1"><a href="#Apache-Hadoop-的经典版本-MRv1" class="headerlink" title="Apache Hadoop 的经典版本 (MRv1)"></a>Apache Hadoop 的经典版本 (MRv1)</h2><p><img src="/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230505637.png" alt="image-20200221230505637"></p>
+<p>大型的 Hadoop 集群显现出了由单个 JobTracker 导致的可伸缩性瓶颈。在集群中有 5,000 个节点和 40,000 个任务同时运行时，这样一种设计实际上就会受到限制。由于此限制，必须创建和维护更小的、功能更差的集群。</p>
+<p>此外，较小和较大的 Hadoop 集群都从未最高效地使用他们的计算资源。在 Hadoop MapReduce 中，每个从属节点上的计算资源由集群管理员分解为固定数量的 map 和 reduce slot，这些 slot 不可替代。设定 map slot 和 reduce slot 的数量后，节点在任何时刻都不能运行比 map slot 更多的 map 任务，即使没有 reduce 任务在运行。这影响了集群的利用率，因为在所有 map slot 都被使用（而且我们还需要更多）时，我们无法使用任何 reduce slot，即使它们可用，反之亦然。</p>
+<p>最后但同样重要的是，Hadoop 设计为仅运行 MapReduce 作业。随着替代性的编程模型（比如 Apache Giraph 所提供的图形处理）的到来，除 MapReduce 外，越来越需要为可通过高效的、公平的方式在同一个集群上运行并共享资源的其他编程模型提供支持。</p>
+<h1 id="为什么会有-Yarn-？"><a href="#为什么会有-Yarn-？" class="headerlink" title="为什么会有 Yarn ？"></a>为什么会有 Yarn ？</h1><p>直接的原因呢，就是因为 Hadoop1.0 中架构的缺陷，在 MapReduce 中，jobTracker 担负起了太多的责任了，接收任务是它，资源调度是它，监控 TaskTracker 运行情况还是它。这样实现的好处是比较简单，但相对的，就容易出现一些问题，比如常见的单点故障问题。</p>
+<p>要解决这些问题，只能将 jobTracker 进行拆分，将其中部分功能拆解出来。彼时业内已经有了一部分的资源管理框架，比如 mesos，于是照着这个思路，就开发出了 Yarn。这里多说个冷知识，其实 Spark 早期是为了推广 mesos 而产生的，这也是它名字的由来，不过后来反正是 Spark 火起来了。</p>
+<p>其实 Hadoop 能有今天这个地位，Yarn 可以说是功不可没。因为有了 Yarn ，更多计算框架可以接入到 Hdfs 中，而不单单是 MapReduce，到现在我们都知道，MapReduce 早已经被 Spark 等计算框架赶超，而 Hdfs 却依然屹立不倒。究其原因，正式因为 Yarn 的包容，使得其他计算框架能专注于计算性能的提升。Hdfs 可能不是最优秀的大数据存储系统，但却是应用最广泛的大数据存储系统，Yarn 功不可没。</p>
+<h1 id="YARN：下一代-Hadoop-计算平台"><a href="#YARN：下一代-Hadoop-计算平台" class="headerlink" title="YARN：下一代 Hadoop 计算平台"></a>YARN：下一代 Hadoop 计算平台</h1><p>以下名称的改动有助于更好地了解 YARN 的设计：</p>
+<ul>
+<li>ResourceManager 代替集群管理器</li>
+<li>ApplicationMaster 代替一个专用且短暂的 JobTracker</li>
+<li>NodeManager 代替 TaskTracker</li>
+<li>一个分布式应用程序代替一个 MapReduce 作业</li>
+</ul>
+<p>YARN 是下一代 Hadoop 计算平台，如下所示。</p>
+<h2 id="YARN-架构"><a href="#YARN-架构" class="headerlink" title="YARN 架构"></a>YARN 架构</h2><p><img src="/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230620139.png" alt="image-20200221230620139"></p>
+<p><img src="/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230631351.png" alt="image-20200221230631351"></p>
+<p>假设用户采用与 MRv1 中相同的方式键入 <code>hadoop jar</code> 命令，将应用程序提交到 ResourceManager。ResourceManager 维护在集群上运行的应用程序列表，以及每个活动的 NodeManager 上的可用资源列表。ResourceManager 需要确定哪个应用程序接下来应该获得一部分集群资源。该决策受到许多限制，比如队列容量、ACL 和公平性。ResourceManager 使用一个可插拔的 Scheduler。Scheduler 仅执行调度；它管理谁在何时获取集群资源（以容器的形式），但不会对应用程序内的任务执行任何监视，所以它不会尝试重新启动失败的任务。</p>
+<p>在 YARN 架构中，一个全局 ResourceManager 以主要后台进程的形式运行，它通常在专用机器上运行，在各种竞争的应用程序之间仲裁可用的集群资源。ResourceManager 会追踪集群中有多少可用的活动节点和资源，协调用户提交的哪些应用程序应该在何时获取这些资源。ResourceManager 是惟一拥有此信息的进程，所以它可通过某种共享的、安全的、多租户的方式制定分配（或者调度）决策（例如，依据应用程序优先级、队列容量、ACLs、数据位置等）。</p>
+<p>在用户提交一个应用程序时，一个称为 ApplicationMaster 的轻量型进程实例会启动来协调应用程序内的所有任务的执行。这包括监视任务，重新启动失败的任务，推测性地运行缓慢的任务，以及计算应用程序计数器值的总和。这些职责以前分配给所有作业的单个 JobTracker。ApplicationMaster 和属于它的应用程序的任务，在受 NodeManager 控制的资源容器中运行。</p>
+<p>NodeManager 是 TaskTracker 的一种更加普通和高效的版本。没有固定数量的 map 和 reduce slots，NodeManager 拥有许多动态创建的资源容器。容器的大小取决于它所包含的资源量，比如内存、CPU、磁盘和网络 IO。目前，仅支持内存和 CPU (YARN-3)。未来可使用 cgroups 来控制磁盘和网络 IO。一个节点上的容器数量，由配置参数与专用于从属后台进程和操作系统的资源以外的节点资源总量（比如总 CPU 数和总内存）共同决定。</p>
+<p>有趣的是，ApplicationMaster 可在容器内运行任何类型的任务。例如，MapReduce ApplicationMaster 请求一个容器来启动 map 或 reduce 任务，而 Giraph ApplicationMaster 请求一个容器来运行 Giraph 任务。您还可以实现一个自定义的 ApplicationMaster 来运行特定的任务，进而发明出一种全新的分布式应用程序框架，改变大数据世界的格局。您可以查阅 Apache Twill，它旨在简化 YARN 之上的分布式应用程序的编写。</p>
+<p>在 YARN 中，MapReduce 降级为一个分布式应用程序的一个角色（但仍是一个非常流行且有用的角色），现在称为 MRv2。MRv2 是经典 MapReduce 引擎（现在称为 MRv1）的重现，运行在 YARN 之上。</p>
+<h2 id="Container"><a href="#Container" class="headerlink" title="Container"></a><strong>Container</strong></h2><p>容器（Container）这个东西是 Yarn 对资源做的一层抽象。就像我们平时开发过程中，经常需要对底层一些东西进行封装，只提供给上层一个调用接口一样，Yarn 对资源的管理也是用到了这种思想。</p>
+<img src="/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230721971.png" alt="image-20200221230721971" style="zoom:80%;">
+
+<p>如上所示，Yarn 将CPU核数，内存这些计算资源都封装成为一个个的容器（Container）。需要注意两点：</p>
+<ul>
+<li>容器由 NodeManager 启动和管理，并被它所监控。</li>
+<li>容器被 ResourceManager 进行调度。</li>
+</ul>
+<p>NodeManager 和 ResourceManager 这两个组件会在下面讲到。</p>
+<h2 id="三个主要组件"><a href="#三个主要组件" class="headerlink" title="三个主要组件"></a><strong>三个主要组件</strong></h2><p>再看最上面的图，我们能直观发现的两个主要的组件是 <strong>ResourceManager</strong> 和 <strong>NodeManager</strong> ，但其实还有一个 <strong>ApplicationMaster</strong> 在图中没有直观显示。我们分别来看这三个组件。</p>
+<h3 id="ResourceManager"><a href="#ResourceManager" class="headerlink" title="ResourceManager"></a><strong>ResourceManager</strong></h3><p>我们先来说说上图中最中央的那个 ResourceManager（RM）。从名字上我们就能知道这个组件是负责资源管理的，整个系统有且只有一个 RM ，来负责资源的调度。它也包含了两个主要的组件：资源调度器(Scheduler)以及应用管理器(ApplicationManager)。</p>
+<ol>
+<li>资源调度器(Scheduler)：从本质上来说，资源调度器就是一种策略，或者说一种算法。当 Client 提交一个任务的时候，它会根据所需要的资源以及当前集群的资源状况进行分配。注意，它只负责向应用程序分配资源，并不做监控以及应用程序的状态跟踪。</li>
+<li>应用管理器(ApplicationManager)：同样，听名字就能大概知道它是干嘛的。应用管理器就是负责管理 Client 用户提交的应用。上面不是说到资源调度器（Scheduler）不对用户提交的程序监控嘛，其实啊，监控应用的工作正是由应用管理器（ApplicationManager）完成的。</li>
+</ol>
+<h3 id="ApplicationMaster"><a href="#ApplicationMaster" class="headerlink" title="ApplicationMaster"></a><strong>ApplicationMaster</strong></h3><p>每当 Client 提交一个 Application 时候，就会新建一个 ApplicationMaster 。由这个 ApplicationMaster 去与 ResourceManager 申请容器资源，获得资源后会将要运行的程序发送到容器上启动，然后进行分布式计算。</p>
+<p>这里可能有些难以理解，为什么是把运行程序发送到容器上去运行？如果以传统的思路来看，是程序运行着不动，然后数据进进出出不停流转。但当数据量大的时候就没法这么玩了，因为海量数据移动成本太大，时间太长。但是中国有一句老话<strong>山不过来，我就过去。</strong>大数据分布式计算就是这种思想，既然大数据难以移动，那我就把容易移动的应用程序发布到各个节点进行计算呗，这就是大数据分布式计算的思路。</p>
+<h3 id="NodeManager"><a href="#NodeManager" class="headerlink" title="NodeManager"></a><strong>NodeManager</strong></h3><p>NodeManager 是 ResourceManager 在每台机器的上代理，负责容器的管理，并监控他们的资源使用情况（cpu，内存，磁盘及网络等），以及向 ResourceManager/Scheduler 提供这些资源使用报告。</p>
+<h2 id="提交一个-Application-到-Yarn-的流程"><a href="#提交一个-Application-到-Yarn-的流程" class="headerlink" title="提交一个 Application 到 Yarn 的流程"></a><strong>提交一个 Application 到 Yarn 的流程</strong></h2><img src="/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230834987.png" alt="image-20200221230834987" style="zoom: 80%;">
+
+<p>这张图简单地标明了提交一个程序所经历的流程，接下来我们来具体说说每一步的过程。</p>
+<ol>
+<li>Client 向 Yarn 提交 Application，这里我们假设是一个 MapReduce 作业。</li>
+<li>ResourceManager 向 NodeManager 通信，为该 Application 分配第一个容器。并在这个容器中运行这个应用程序对应的 ApplicationMaster。</li>
+<li>ApplicationMaster 启动以后，对 作业（也就是 Application） 进行拆分，拆分 task 出来，这些 task 可以运行在一个或多个容器中。然后向 ResourceManager 申请要运行程序的容器，并定时向 ResourceManager 发送心跳。</li>
+<li>申请到容器后，ApplicationMaster 会去和容器对应的 NodeManager 通信，而后将作业分发到对应的 NodeManager 中的容器去运行，这里会将拆分后的 MapReduce 进行分发，对应容器中运行的可能是 Map 任务，也可能是 Reduce 任务。</li>
+<li>容器中运行的任务会向 ApplicationMaster 发送心跳，汇报自身情况。当程序运行完成后， ApplicationMaster 再向 ResourceManager 注销并释放容器资源。</li>
+</ol>
+<p>以上就是一个作业的大体运行流程。</p>
+<h2 id="可运行任何分布式应用程序的集群"><a href="#可运行任何分布式应用程序的集群" class="headerlink" title="可运行任何分布式应用程序的集群"></a>可运行任何分布式应用程序的集群</h2><p>ResourceManager、NodeManager 和容器都不关心应用程序或任务的类型。所有特定于应用程序框架的代码都转移到它的 ApplicationMaster，以便任何分布式框架都可以受 YARN 支持 — 只要有人为它实现了相应的 ApplicationMaster。</p>
+<p>得益于这个一般性的方法，Hadoop YARN 集群运行许多不同工作负载的梦想才得以实现。想像一下：您数据中心中的一个 Hadoop 集群可运行 MapReduce、Giraph、Storm、Spark、Tez/Impala、MPI 等。</p>
+<p>单一集群方法明显提供了大量优势，其中包括：</p>
+<ul>
+<li>更高的集群利用率，一个框架未使用的资源可由另一个框架使用</li>
+<li>更低的操作成本，因为只有一个 “包办一切的” 集群需要管理和调节</li>
+<li>更少的数据移动，无需在 Hadoop YARN 与在不同机器集群上运行的系统之间移动数据</li>
+</ul>
+<p>管理单个集群还会得到一个更环保的数据处理解决方案。使用的数据中心空间更少，浪费的硅片更少，使用的电源更少，排放的碳更少，这只是因为我们在更小但更高效的 Hadoop 集群上运行同样的计算。</p>
 
       
     </div>
+    
+    
+    
 
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="Lich wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎订阅我的公众号！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>有收获，赞赏下</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechat.jpg" alt="Lich 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.jpg" alt="Lich 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag"><i class="fa fa-tag"></i> 大数据</a>
+          
+            <a href="/tags/Yarn/" rel="tag"><i class="fa fa-tag"></i> Yarn</a>
+          
+            <a href="/tags/Hadoop/" rel="tag"><i class="fa fa-tag"></i> Hadoop</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/21/V2Ray%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC/" rel="next" title="V2Ray一键安装脚本">
+                <i class="fa fa-chevron-left"></i> V2Ray一键安装脚本
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/21/Spark-On-Yarn%E5%8E%9F%E7%90%86/" rel="prev" title="Spark On Yarn原理">
+                Spark On Yarn原理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -346,6 +633,13 @@
 
 
           
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
 
         </div>
         
@@ -366,8 +660,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -528,6 +831,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#经典-MapReduce-的局限性"><span class="nav-number">1.</span> <span class="nav-text">经典 MapReduce 的局限性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache-Hadoop-的经典版本-MRv1"><span class="nav-number">1.1.</span> <span class="nav-text">Apache Hadoop 的经典版本 (MRv1)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么会有-Yarn-？"><span class="nav-number">2.</span> <span class="nav-text">为什么会有 Yarn ？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#YARN：下一代-Hadoop-计算平台"><span class="nav-number">3.</span> <span class="nav-text">YARN：下一代 Hadoop 计算平台</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#YARN-架构"><span class="nav-number">3.1.</span> <span class="nav-text">YARN 架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container"><span class="nav-number">3.2.</span> <span class="nav-text">Container</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三个主要组件"><span class="nav-number">3.3.</span> <span class="nav-text">三个主要组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ResourceManager"><span class="nav-number">3.3.1.</span> <span class="nav-text">ResourceManager</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ApplicationMaster"><span class="nav-number">3.3.2.</span> <span class="nav-text">ApplicationMaster</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeManager"><span class="nav-number">3.3.3.</span> <span class="nav-text">NodeManager</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交一个-Application-到-Yarn-的流程"><span class="nav-number">3.4.</span> <span class="nav-text">提交一个 Application 到 Yarn 的流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可运行任何分布式应用程序的集群"><span class="nav-number">3.5.</span> <span class="nav-text">可运行任何分布式应用程序的集群</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -676,6 +995,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -716,6 +1039,22 @@
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="/js/src/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'cbdf98e386888ca683a5',
+          clientSecret: 'b47f85b65b41080bd1fcaff874fcb2524a007c51',
+          repo: 'lich.site',
+          owner: 'tokgolich',
+          admin: ['tokgolich'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
 
