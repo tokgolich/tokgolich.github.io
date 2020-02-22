@@ -1,6 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>潘超：DeFi 的理论与实践</title>
+    <url>/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/</url>
+    <content><![CDATA[<blockquote>
+<p>编者注：本文为 MakerDAO 中国社区负责人潘超在 “洞见” 第四期活动 “DeFi” 上的演讲。在本文中，潘超极为精炼地总结出 DeFi 的定义、现在市场上不同 DeFi 项目的特点，并最终点出了去中心化金融的终极追求。简单的介绍中暗含着秩序感，清楚的结论还给人想象空间，这是他的 Insight。</p>
+</blockquote>
+<a id="more"></a>
+
+<p>大家好，今天给大家分享的主题是《DeFi: 理论与实践》，我将介绍 DeFi 的定义、内核以及在具体领域的实践，最后聊一聊 DeFi 的再定义与方向。</p>
+<h2 id="DeFi-的定义与内核"><a href="#DeFi-的定义与内核" class="headerlink" title="DeFi 的定义与内核"></a><strong>DeFi 的定义与内核</strong></h2><p>首先我们来谈一谈 DeFi 的定义。DeFi 的全称是 Decentralized Finance - 去中心化金融。</p>
+<img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215024521.png" alt="image-20200222215024521" style="zoom:80%;">
+
+<p>金融的概念我们一般都比较了解，那么去中心化呢？我们往往会想到以下的概念：分布式、透明性、抗审查、不可更改等。在我看来，以上这些并非去中心化金融的核心以及优势，分布式并非区块链独有，透明性、抗审查性以及不可更改对金融行业而言很难兼容。去中心化金融的核心和优势在于 <strong>无需准入</strong>。</p>
+<p><strong>什么是无需准入？无需准入有三个层级：开发者的无需准入、节点的无需准入和用户的无需准入</strong>。</p>
+<img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215124453.png" alt="image-20200222215124453" style="zoom:80%;">
+
+<ul>
+<li>开发者的无需准入意味着项目的代码开源，任何开发者都可以通过 Pull Request 的形式参与代码和协议的更新，一个例子是以太坊。</li>
+<li>节点的无需准入指任何节点都可以作为矿工或者验证者，也就是说任何人都可以作为记账人。这往往指 Nakamoto Consensus 的全局共识机制，如工作量证明或者权益证明。</li>
+<li>用户的无需准入是指任何人都可以使用这个网络，与这个网络进行互动，包括创建账户、转账、合约互动等。</li>
+</ul>
+<p><strong>个人认为，只需要满足使用者无需准入的金融项目都可以属于去中心化金融的范畴，而开发者以及节点的无需准入一般需要在效率、安全与去中心化中权衡</strong>。</p>
+<p>围绕无需准入，还有“不可能三角”的特性：自动化、鲁棒性以及不可更改性。完全自动化、不可更改的网络如同火箭工程，在异常故障、恶意攻击和失误下保持系统的鲁棒性 (Robustness) 难度近乎苛刻。尤其是处在早期的去中心化金融项目，不可避免需要取舍。</p>
+<h2 id="金融领域的去中心化"><a href="#金融领域的去中心化" class="headerlink" title="金融领域的去中心化"></a><strong>金融领域的去中心化</strong></h2><p>当我们在谈去中心化金融的时候，往往会将去中心化（区块链）作为主体，然后讨论和设计具有金融属性的应用和协议。但更加全面和系统地理解去中心化金融，我更倾向于以金融为体，思考哪些领域可以去中心化。在我看来，有以下几个方面和实例：</p>
+<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215222939.png" alt="image-20200222215222939"></p>
+<h3 id="融资"><a href="#融资" class="headerlink" title="融资"></a><strong>融资</strong></h3><p>融资是指项目向外界筹集资金，无需准入的融资则是完全意义上的众筹。传统的众筹 (Crowdfunding) 是以产品和服务为回报募集资金。而区块链上的融资则以代币为回报，募集代币或者法币，也就是 ICO（首次代币发行）。</p>
+<p>尽管饱受争议，但是 ICO 可以说是区块链上的第一个具有金融属性的应用落地。最早的首次代币发行是 Mastercoin，试图在比特币网络的基础上开发金融协议。虽然 Mastercoin 本身失败了，但其通过 ICO 募集了 500 比特币，后来转型为大家熟知的 Tether 网络 - Omni。</p>
+<p>在 Mastercoin 之后，我们又看到了包括以太坊在内的大型 ICO，尤其是在 ERC20 标准后，首次代币发行变得更加容易和受欢迎。</p>
+<h3 id="商用金融软件"><a href="#商用金融软件" class="headerlink" title="商用金融软件"></a><strong>商用金融软件</strong></h3><p>不过，早期的区块链项目融资的软件设施非常的原生态，甚至简陋。投资人需要使用命令行和掌握基本的编程知识才能参与。这是一个很大的门槛。</p>
+<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215337456.png" alt="image-20200222215337456"></p>
+<p>随着（去中心化和中心化）商用软件的不断开发，区块链上的金融服务才不断让普通人得以方便使用。比如网页端的钱包 (Metamask)，手机端 imToken 和交易与支付的 DApp。</p>
+<h3 id="存贷款"><a href="#存贷款" class="headerlink" title="存贷款"></a><strong>存贷款</strong></h3><p>有了外部资金和好用的软件，去中心化金融可以有规模化的采用和涉及金融的核心功能——基于稳定币的存贷款。</p>
+<p>MakerDAO 是从2015年开始的项目，其发行的稳定币 Dai 成了以太坊上的基础货币和贷款引擎。如果将以太坊看做是黄金储备，那么 Dai 便是超额“以太坊本位”储备下发行的央行货币。</p>
+<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215429710.png" alt="image-20200222215429710"></p>
+<p><em>-</em>[<em>深入浅出理解 MakerDAO*](<a href="https://mp.weixin.qq.com/s?__biz=MzI4NTg4NzA3Mg==&amp;mid=2247484564&amp;idx=2&amp;sn=2b7f775ea04ce47a840dfb7ae5d5a8e1&amp;chksm=ebe41b9bdc93928d1d3a0c15daabf8b4292f66cc3ff5662c46c35dc4effde9b4257fb6fa0617&amp;mpshare=1&amp;scene=21&amp;srcid=0401YZwmb9V6l4NuwYtS2IDo&amp;key=fd47cfb2e36ff9534a83d2dccbf60b865974b82c7f365807cab31c2363da4049bef3ac4f5150f43ff26bff172688b41a8eb943ad39472ad0cf6eed0da30cfa6ad170ce749ba6797e0f3ee7b0b20f11d2&amp;ascene=1&amp;uin=Mjc4MjA1NTcyNA==&amp;devicetype=Windows" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzI4NTg4NzA3Mg==&amp;mid=2247484564&amp;idx=2&amp;sn=2b7f775ea04ce47a840dfb7ae5d5a8e1&amp;chksm=ebe41b9bdc93928d1d3a0c15daabf8b4292f66cc3ff5662c46c35dc4effde9b4257fb6fa0617&amp;mpshare=1&amp;scene=21&amp;srcid=0401YZwmb9V6l4NuwYtS2IDo&amp;key=fd47cfb2e36ff9534a83d2dccbf60b865974b82c7f365807cab31c2363da4049bef3ac4f5150f43ff26bff172688b41a8eb943ad39472ad0cf6eed0da30cfa6ad170ce749ba6797e0f3ee7b0b20f11d2&amp;ascene=1&amp;uin=Mjc4MjA1NTcyNA==&amp;devicetype=Windows</a> 10&amp;version=62060739&amp;lang=zh_CN&amp;pass_ticket=1/s pPjP1rtD2q8UhidykDK38ejkDodC1RjdZmTcX Z Am9ZkwPdQGc6hypgYkK5#wechat_redirect)</em>-*</p>
+<p>在 Dai 作为“高能货币”的背景下，市场上出现了以其他资产为储备发行的衍生货币。比如以无需托管资金池、根据供需自动调节利率的“商业银行” Compound。</p>
+<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215641556.png" alt="image-20200222215641556"></p>
+<p>而点对点形式的借贷协议，也有 Dharma 等为代表。</p>
+<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215701959.png" alt="image-20200222215701959"></p>
+<h3 id="衍生品"><a href="#衍生品" class="headerlink" title="衍生品"></a><strong>衍生品</strong></h3><p>在基础货币和贷款之外，这个生态里自然地出现了衍生品，比如保证金交易 (dYdX) 和二元期权 (Augur) 等。</p>
+<p>在中心化的保证金交易市场里，配资仅限于买入标的资产（即需要对手方），且只有在平仓时才会结算。基于公链的衍生品不需要对手方且可自由流通。</p>
+<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215727632.png" alt="image-20200222215727632"></p>
+<p>预测市场是二元期权的一种形式，由于只需要在结算时提供公认的结果，区块链账本的透明和智能合约的自动执行和结算的特点是天然的优势。</p>
+<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215752651.png" alt="image-20200222215752651"></p>
+<p><strong>还有许多将传统资产隐射到链上的金融合成品，如美股指数，让普通人可以不受限地、低成本地参与之前无法获得的衍生品投资</strong>。</p>
+<h3 id="投资管理"><a href="#投资管理" class="headerlink" title="投资管理"></a><strong>投资管理</strong></h3><p>在有了相对丰富的金融产品后，投资管理是另一个可以去中心化实现的领域。通过自动执行的合约和无需准入的网络，基于区块链的协议（如 Melonport）可以将过去只属于证券公司的蛋糕分给专业的独立投资人。</p>
+<h3 id="交易与支付"><a href="#交易与支付" class="headerlink" title="交易与支付"></a><strong>交易与支付</strong></h3><p>最后我们看一下交易与支付领域。去中心化交易所相信对大家来说已经不是陌生事，往往被人们忽视的一点，在区块链上的金融应用，无需托管的去中心化交易反而能够提供更快、更安全的清结算和流动性。</p>
+<p><strong>就支付而言，二层甚至多层网络</strong>，即通过质押资产或者状态通道的方式，将一部分追求速度的交易放在链下进行，把要求交易安全和最终性的交易放在主链，<strong>已经相对成熟</strong>。我们已经看到一些接近主流支付工具的去中心化支付解决方案。</p>
+<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215822023.png" alt="image-20200222215822023"></p>
+<h2 id="去中心化金融的再定义与方向"><a href="#去中心化金融的再定义与方向" class="headerlink" title="去中心化金融的再定义与方向"></a><strong>去中心化金融的再定义与方向</strong></h2><p>带着这些实例回到最初的讨论，我们看到 DeFi 的核心是围绕着无需准入、低门槛进行的。<strong>去中心化金融的目标不是去中心化本身，而是更加开放和公平。</strong></p>
+<p>这 Open Banking 很是接近。只是 Open Banking 给第三方的权限仅在于可读的 API，而 DeFi 给普通用户可读、可控甚至作为记账人的权力。</p>
+<p>DeFi 与传统 FinTech 的区别在于后者基于数据与机器学习算法，实现更精准的信用评估和预测，而 DeFi 则是对所有参与者一视同仁，这既是初衷，但不得不承认的是，身份和信用体系是目前 DeFi 缺失的一环。</p>
+<p>可以预见的是，去中心化金融将和传统金融同时存在，去中心化金融将很好地补充中心化机构在跨境领域、利基市场和缺乏金融基础设施地区的支付、贷款与信用。</p>
+<p><strong>Bank the unbanked, Serve the underserved.</strong></p>
+<p>去中心化金融 (Decentralized Finance) 更好的名字应该是开放式金融 (Open Finance)。</p>
+<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215903278.png" alt="image-20200222215903278"></p>
+]]></content>
+      <categories>
+        <category>区块链</category>
+        <category>DeFi</category>
+      </categories>
+      <tags>
+        <tag>区块链</tag>
+        <tag>DeFi</tag>
+        <tag>MakerDAO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>什么是DAO?</title>
+    <url>/2020/02/22/%E4%BB%80%E4%B9%88%E6%98%AFDAO/</url>
+    <content><![CDATA[<p><em>前言：区块链上有不少让人兴奋的概念，DAO是其中之一。为什么DAO会引起这么大的关注？其中很重要的原因是它具有的特性：自动化执行的统一规则、透明度、权益相关者都可以表达自己的利益诉求，它代表了一种组织管理的可能方向。但同时DAO发展处于初级阶段，它的治理机制是否合理？如何才能对组织发展有利？这里有很多细节需要探讨。本文作者是Delton Rhodes，由“蓝狐笔记”社群的“SIEN”翻译。</em></p>
+<a id="more"></a>
+
+<p>从历史看，组织的概念一直以来都是以严格的所有权结构为中心。在过去的几十年，公司开始引入开放、扁平的组织结构，它允许公司里的更多人可以表达自己的声音。但是，最终而言，为整个组织做决策通常是一个人或少数人的责任。</p>
+<p>当我们观察大公司，明确的层级结构是标准。毕竟，Apple、Google以及Facebook都有CEO、CTO以及CMO，同时还有总监、经理以及相应的下属。早期的初创公司和大公司都有明确定义的所有权和领导结构。尽管在一家公司拥有股权是可能的，且理论上可以拥有组织的一部分，但其影响力是非常有限的。</p>
+<p>几个世纪以来，确定所有权、层级以及规则的困境给组织发展带来了主要障碍。但是，如果公司不一定需要所有者怎么办？这个问题在历史上的大多数时侯都是基于理想主义的。而如今实现分布式的无所有者组织成为可能，这要感谢DAO（分布式自主组织）的出现。</p>
+<h1 id="什么是DAO？"><a href="#什么是DAO？" class="headerlink" title="什么是DAO？"></a><strong>什么是DAO？</strong></h1><p>DAO有时候也称为分布式自治公司（DAC，decentralized autonomous corporation），它是一种由编码为计算机程序的规则所表示的组织，该程序是透明的、由股东或代币持有人控制，且不受中心机构影响。DAO利用区块链来验证交易。</p>
+<p>DAO中的每个人都可以发布提议并进行投票来做决策。加密货币用来代表关键价值，在指定时期结束时具有最高数额的投票获胜。这跟其他形式的投票形成直接对比，这些投票通常每人的比重相同。通常，提案为“是或否”的问题，即公司A是否应该开发产品x？</p>
+<h1 id="为什么人们想要这个？"><a href="#为什么人们想要这个？" class="headerlink" title="为什么人们想要这个？"></a><strong>为什么人们想要这个？</strong></h1><h2 id="快速、无边界的业务决策"><a href="#快速、无边界的业务决策" class="headerlink" title="快速、无边界的业务决策"></a><strong>快速、无边界的业务决策</strong></h2><p>如果在A国的某人想跟B国、C国等国家的创始人一起创业，当前做个事情的过程非常复杂。不同的司法管辖区有不同的要求。决策所需的时间范围也有所不同。例如，假设A国的某人只需一天即可正式成立业务，而在B国的那位需要3个月时间来启动。显然，在B国的人并不拥有跟A国的那位一样的资源。</p>
+<p>DAO则提供了一种解决方案，可以通过遵守一套标准规则，让每个人都可以在同等条件下工作，而不用考虑所在的地理位置。本质上说，创建DAO的一个主要原因之一是为组织的成立和运营提供平等的体系。</p>
+<h2 id="组织范围内的投票"><a href="#组织范围内的投票" class="headerlink" title="组织范围内的投票"></a><strong>组织范围内的投票</strong></h2><p>很多公司都有董事会来做重要决策。这么做的问题是这些组织通常只对少数选出的问题进行投票，且并不一定代表组织的大多数。DAO可以改变这一点，它允许组织的任何人都可以就他们关心的问题进行投票。例如，A可能会关心问题A和问题C，但不怎么关心问题B。</p>
+<p>通过DAO，A可以根据自己关心的程度来对提案进行相应比例的代币投票。DAO不会使用对组织内成员的输入忽略或不加计入的系统，而是确保所有投票都被统计并向所有人显示。（蓝狐笔记：DAO确保组织内的利益相关者，也就是代币持有人都有机会表达的自己的意见）</p>
+<h2 id="无法篡改规则"><a href="#无法篡改规则" class="headerlink" title="无法篡改规则"></a><strong>无法篡改规则</strong></h2><p>在任何组织内，政策和规则决定什么能做以及什么不能做。例如，在一家公司，不遵守规定的员工可能会遭受惩罚。如果某人上班迟到，这可能会也可能不会导致相应地扣减工资。这个决定可以通过时间戳来自动执行，但并非所有组织都会强制执行。</p>
+<p>例如，如果老板迟到，它可能会通过设置例外情况来变更这个规则。在DAO中，它会通过代码确保规则适用于每个人。组织内已建立的一套规则无法被篡改，除非投票人群体同意这么做。</p>
+<p>会议是形成想法和讨论想法的机会。DAO可以让远程组织更容易评估成员兴趣，更容易让想法从构想变为现实。</p>
+<h1 id="DAO的局限"><a href="#DAO的局限" class="headerlink" title="DAO的局限"></a><strong>DAO的局限</strong></h1><h2 id="很多决策依赖于人的活动，而不是自动化"><a href="#很多决策依赖于人的活动，而不是自动化" class="headerlink" title="很多决策依赖于人的活动，而不是自动化"></a><strong>很多决策依赖于人的活动，而不是自动化</strong></h2><p>智能合约已经实现让很多人工任务变成自动化执行。例如，智能合约可以决定A是否可以向B发送资金，这个决定基于它是否满足一组标准。问题在于，无法仅通过点击按钮来完成很多活动。</p>
+<p>其中一个案例是关于分配工作资金。例如，DAO可以使用智能合约来发送资金，开发团队用该资金构建APP。但是，DAO无法确保开发团队完成开发或者甚至无法确定资金是否被正确使用。最小化此类问题的机制可能包括要求通过里程碑来对大型项目是否完成进行投票。</p>
+<h2 id="缺乏法律支持"><a href="#缺乏法律支持" class="headerlink" title="缺乏法律支持"></a><strong>缺乏法律支持</strong></h2><p>尽管由于DAO的无边界性质，它被认为在组织业务运营上更有效率，但这也可以看作为是一种缺陷。由于对DAO运作相关的官方法律还未制定，因此这类组织的法律地位充其量是模凌两可的。智能合约代码看上去有助于保护个人，但法院并没有正式认可这些。</p>
+<p>DAO当前并不享有跟其他类型组织同等的法律保护</p>
+<h1 id="当前最具人气的DAO"><a href="#当前最具人气的DAO" class="headerlink" title="当前最具人气的DAO"></a><strong>当前最具人气的DAO</strong></h1><ul>
+<li>Dash DAO</li>
+</ul>
+<p>DashDAO由主节点（持有至少1000个DASH代币的权益持有者）管理。主节点可以运行重要功能，包括即时发送（InstantSend）和隐私发送（PrivateSend）。他们同时也为使用Dash国库资金的提案进行投票。任何人可以向主节点提交提案。5个DASH的费用是必须的，作为反垃圾发送的费用。如果有足够的主节点投票，则就可以为该提案提供资金。</p>
+<ul>
+<li>BitShares</li>
+</ul>
+<p>BitShares于2013年发布，它是第一个通过代表和见证人选举程序实现DAO的平台。代表向平台提交更新和改进。见证人验证交易并将其发布到区块链上。任何持有BTS代币的人，也就是持有平台原生代币的人，都可以进行投票。</p>
+<ul>
+<li>Aragon</li>
+</ul>
+<p>Aragon有一个DAO，它允许其代币ANT持有人创建属于他们自己的DAO组织，并就决策进行投票。其他功能还包括开采新代币、向用户支付各种代币、以及为组织内的个人定制权限的设置。像Liverpeer、MyBit、以及BrightID等项目都使用了Aragon。</p>
+<ul>
+<li>MakerDAO</li>
+</ul>
+<p>MakerDAO使用了这样的DAO：其原生代币MKR的持有人可以就影响其P2P借贷协议的决策进行投票。MKR代币持有人投票决定年化借贷利率（稳定费）、开启每个CDP所需的抵押资产比率（抵押率）、在ETH闪崩或其他无法意料情况下关闭协议的能力。</p>
+<ul>
+<li>Moloch DAO</li>
+</ul>
+<p>Moloch DAO的成员从DAO资助的公共物品的改善中享受到集体利益。Moloch DAO当前专注于资助以太坊2.0的开发。</p>
+<ul>
+<li>DAOStack</li>
+</ul>
+<p>DAOStack为Alchemy提供功能，它是首个基于DAOStack构建的实时去中心化应用。Alchemy当前正在为ETHGlobal、Kyber以及Polkadot这些组织管理实时DAO。当投票结束，预测正确的人们可以从其质押权益中获得收益。GEN是DAOStack的原生代币，旨在帮助去中心化组织有效扩展的同时不损害其价值。</p>
+<h1 id="财富500强公司能否变成分布式的组织？"><a href="#财富500强公司能否变成分布式的组织？" class="headerlink" title="财富500强公司能否变成分布式的组织？"></a><strong>财富500强公司能否变成分布式的组织？</strong></h1><p>2017年，西门子成为第一家在其内部使用DAO的财富500强公司。完全在DAO上运行大公司的概念很让人感兴趣，但还不太实用。如果一家财富500强公司今天突然决定就其所有治理全部转向DAO，这会带来无数的技术挑战（UI/UX、安全、扩展性）需要解决，以使得区块链能支持此类组织结构。上述提及的局限性也将适用。对于参与者来说，这里会有学习曲线。</p>
+<p>最后，还有人为因素需要考虑。如果参与率太低，就很难分辨出投票是否实际上代表组织的真正大多数。对于DAO提案和投票过于依赖，也可能会导致个人持续进行很多小决策，这从根本上限制了投票人实际上必须完成所分配任务的时间。从现实角度，因为上述原因，创建运行在DAO上的小型组织更有可行性。（蓝狐笔记：作者认为DAO上运行较大组织暂时不太可行，所以财富500强公司在DAO上运行还不现实）</p>
+]]></content>
+      <categories>
+        <category>区块链</category>
+        <category>DeFi</category>
+      </categories>
+      <tags>
+        <tag>区块链</tag>
+        <tag>DeFi</tag>
+        <tag>DAO</tag>
+        <tag>分布式自治</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spark On Yarn原理</title>
     <url>/2020/02/21/Spark-On-Yarn%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h1 id="Spark-资源管理架构"><a href="#Spark-资源管理架构" class="headerlink" title="Spark 资源管理架构"></a>Spark 资源管理架构</h1><p>首先介绍 Spark 的资源管理架构。Spark 集群考虑到了未来对接一些更强大的资源管理系统（如 Yarn、Mesos 等）没有在资源管理的设计上对外封闭，所以Spark 架构设计时将资源管理抽象出了一层，通过这种抽象能够构建一种插件式的资源管理模块。</p>
@@ -716,13 +843,14 @@ ChainLink目前以太坊为主构建，未来也会支持其他智能合约平�
 ]]></content>
       <categories>
         <category>区块链</category>
+        <category>DeFi</category>
         <category>预言机</category>
       </categories>
       <tags>
         <tag>区块链</tag>
+        <tag>DeFi</tag>
         <tag>预言机</tag>
         <tag>ChainLink</tag>
-        <tag>DeFi</tag>
       </tags>
   </entry>
 </search>
