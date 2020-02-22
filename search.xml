@@ -34,7 +34,7 @@
 <h3 id="存贷款"><a href="#存贷款" class="headerlink" title="存贷款"></a><strong>存贷款</strong></h3><p>有了外部资金和好用的软件，去中心化金融可以有规模化的采用和涉及金融的核心功能——基于稳定币的存贷款。</p>
 <p>MakerDAO 是从2015年开始的项目，其发行的稳定币 Dai 成了以太坊上的基础货币和贷款引擎。如果将以太坊看做是黄金储备，那么 Dai 便是超额“以太坊本位”储备下发行的央行货币。</p>
 <p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215429710.png" alt="image-20200222215429710"></p>
-<p><em>-</em>[<em>深入浅出理解 MakerDAO*](<a href="https://mp.weixin.qq.com/s?__biz=MzI4NTg4NzA3Mg==&amp;mid=2247484564&amp;idx=2&amp;sn=2b7f775ea04ce47a840dfb7ae5d5a8e1&amp;chksm=ebe41b9bdc93928d1d3a0c15daabf8b4292f66cc3ff5662c46c35dc4effde9b4257fb6fa0617&amp;mpshare=1&amp;scene=21&amp;srcid=0401YZwmb9V6l4NuwYtS2IDo&amp;key=fd47cfb2e36ff9534a83d2dccbf60b865974b82c7f365807cab31c2363da4049bef3ac4f5150f43ff26bff172688b41a8eb943ad39472ad0cf6eed0da30cfa6ad170ce749ba6797e0f3ee7b0b20f11d2&amp;ascene=1&amp;uin=Mjc4MjA1NTcyNA==&amp;devicetype=Windows" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzI4NTg4NzA3Mg==&amp;mid=2247484564&amp;idx=2&amp;sn=2b7f775ea04ce47a840dfb7ae5d5a8e1&amp;chksm=ebe41b9bdc93928d1d3a0c15daabf8b4292f66cc3ff5662c46c35dc4effde9b4257fb6fa0617&amp;mpshare=1&amp;scene=21&amp;srcid=0401YZwmb9V6l4NuwYtS2IDo&amp;key=fd47cfb2e36ff9534a83d2dccbf60b865974b82c7f365807cab31c2363da4049bef3ac4f5150f43ff26bff172688b41a8eb943ad39472ad0cf6eed0da30cfa6ad170ce749ba6797e0f3ee7b0b20f11d2&amp;ascene=1&amp;uin=Mjc4MjA1NTcyNA==&amp;devicetype=Windows</a> 10&amp;version=62060739&amp;lang=zh_CN&amp;pass_ticket=1/s pPjP1rtD2q8UhidykDK38ejkDodC1RjdZmTcX Z Am9ZkwPdQGc6hypgYkK5#wechat_redirect)</em>-*</p>
+<p><a href="https://mp.weixin.qq.com/s?biz=MzI4NTg4NzA3Mg==&mid=2247484564&idx=2&sn=2b7f775ea04ce47a840dfb7ae5d5a8e1&chksm=ebe41b9bdc93928d1d3a0c15daabf8b4292f66cc3ff5662c46c35dc4effde9b4257fb6fa0617&mpshare=1&scene=21&srcid=0401YZwmb9V6l4NuwYtS2IDo&key=fd47cfb2e36ff9534a83d2dccbf60b865974b82c7f365807cab31c2363da4049bef3ac4f5150f43ff26bff172688b41a8eb943ad39472ad0cf6eed0da30cfa6ad170ce749ba6797e0f3ee7b0b20f11d2&ascene=1&uin=Mjc4MjA1NTcyNA==&devicetype=Windows%2010&version=62060739&lang=zh_CN&pass_ticket=1/s%20pPjP1rtD2q8UhidykDK38ejkDodC1RjdZmTcX%20Z%20Am9ZkwPdQGc6hypgYkK5#wechat_redirect" target="_blank" rel="noopener">深入浅出理解 MakerDAO</a></p>
 <p>在 Dai 作为“高能货币”的背景下，市场上出现了以其他资产为储备发行的衍生货币。比如以无需托管资金池、根据供需自动调节利率的“商业银行” Compound。</p>
 <p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215641556.png" alt="image-20200222215641556"></p>
 <p>而点对点形式的借贷协议，也有 Dharma 等为代表。</p>
@@ -843,14 +843,14 @@ ChainLink目前以太坊为主构建，未来也会支持其他智能合约平�
 ]]></content>
       <categories>
         <category>区块链</category>
-        <category>DeFi</category>
         <category>预言机</category>
+        <category>DeFi</category>
       </categories>
       <tags>
         <tag>区块链</tag>
-        <tag>DeFi</tag>
         <tag>预言机</tag>
         <tag>ChainLink</tag>
+        <tag>DeFi</tag>
       </tags>
   </entry>
 </search>
