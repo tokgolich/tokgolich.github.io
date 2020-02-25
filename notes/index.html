@@ -88,10 +88,12 @@
 
 <meta name="description" content="Lich&#39;s Blog - 独孤皇帝的部落格">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Lich&#39;s Blog">
-<meta property="og:url" content="https://lich.site/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/%E9%A2%84%E8%A8%80%E6%9C%BA/index.html">
+<meta property="og:title" content="notes">
+<meta property="og:url" content="https://lich.site/notes/index.html">
 <meta property="og:site_name" content="Lich&#39;s Blog">
 <meta property="og:description" content="Lich&#39;s Blog - 独孤皇帝的部落格">
+<meta property="article:published_time" content="2020-02-25T06:10:26.000Z">
+<meta property="article:modified_time" content="2020-02-25T06:10:46.228Z">
 <meta property="article:author" content="Lich">
 <meta property="article:tag" content="lich">
 <meta property="article:tag" content="site">
@@ -127,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://lich.site/categories/区块链/预言机/"/>
+  <link rel="canonical" href="https://lich.site/notes/"/>
 
 
 
 
 
-  <title>分类: 预言机 | Lich's Blog</title>
+  <title>notes | Lich's Blog</title>
   
 
 
@@ -152,7 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -290,55 +292,36 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>预言机<small>分类</small>
-        </h1>
-      </div>
+	<h1 class="post-title" itemprop="name headline">notes</h1>
+
+
+
+</header>
 
       
+      
+      
+      <div class="post-body">
         
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
         
-            <a class="post-title-link" href="/2020/02/20/ChainLink-the-oracle-connecting-the-two-worlds/" itemprop="url">
-              
-                <span itemprop="name">ChainLink、预言机与两个世界的连接</span>
-              
-            </a>
+          
         
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-20T17:08:34+08:00"
-              content="2020-02-20" >
-          02-20
-        </time>
       </div>
-
-    </header>
-  </article>
-
-
+      
+      
       
     </div>
-
+    
+    
+    
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -346,6 +329,13 @@
 
 
           
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
 
         </div>
         
@@ -676,6 +666,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -716,6 +710,22 @@
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="/js/src/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'cbdf98e386888ca683a5',
+          clientSecret: 'b47f85b65b41080bd1fcaff874fcb2524a007c51',
+          repo: 'lich.site',
+          owner: 'tokgolich',
+          admin: ['tokgolich'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
 
