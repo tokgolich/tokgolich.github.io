@@ -92,77 +92,77 @@
 <meta property="og:url" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/index.html">
 <meta property="og:site_name" content="Lich&#39;s Blog">
 <meta property="og:description" content="介绍Ambari Ambari 跟 Hadoop 等开源软件一样，也是 Apache Software Foundation 中的一个项目，并且是顶级项目。就 Ambari 的作用来说，就是创建、管理、监视 Hadoop 的集群，但是这里的 Hadoop 指的是 Hadoop 整个生态圈（例如 Hive，Hbase，Sqoop，Zookeeper 等）， 而并不仅是特指 Hadoop。用一句话来说">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220201704962.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220201743769.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220202924124.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203046966.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203059759.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203110491.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203122553.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203240722.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203311168.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203726175.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203751452.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203847349.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203917637.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204121994.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204157475.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204208509.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204341095.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204349178.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204627146.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204649551.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204703098.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204715380.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204746159.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204753727.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204933844.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204946224.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205002542.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205015834.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205154210.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205203712.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205214164.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205230941.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205239792.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205516910.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205531051.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205541563.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205552949.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205653230.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205708704.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205840641.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205853444.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205906904.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205924855.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205934705.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220210120836.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220210351496.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220210403897.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220210612837.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211102777.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211115145.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211127892.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211139211.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211148792.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211157937.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211206645.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211215821.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211224207.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211233909.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211245700.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211259349.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211311916.png">
-<meta property="og:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211348465.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220201704962.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220201743769.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220202924124.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203046966.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203059759.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203110491.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203122553.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203240722.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203311168.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203726175.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203751452.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203847349.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203917637.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204121994.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204157475.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204208509.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204341095.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204349178.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204627146.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204649551.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204703098.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204715380.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204746159.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204753727.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204933844.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204946224.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205002542.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205015834.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205154210.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205203712.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205214164.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205230941.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205239792.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205516910.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205531051.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205541563.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205552949.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205653230.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205708704.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205840641.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205853444.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205906904.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205924855.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205934705.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220210120836.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220210351496.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220210403897.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220210612837.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211102777.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211115145.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211127892.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211139211.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211148792.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211157937.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211206645.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211215821.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211224207.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211233909.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211245700.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211259349.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211311916.png">
+<meta property="og:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211348465.png">
 <meta property="article:published_time" content="2020-02-20T12:08:19.000Z">
-<meta property="article:modified_time" content="2020-02-21T15:04:17.189Z">
+<meta property="article:modified_time" content="2020-03-05T03:22:36.247Z">
 <meta property="article:author" content="Lich">
 <meta property="article:tag" content="Ambari">
 <meta property="article:tag" content="大数据">
 <meta property="article:tag" content="Centos7">
 <meta property="article:tag" content="HDP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lich.site/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220201704962.png">
+<meta name="twitter:image" content="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220201704962.png">
 
 
 
@@ -414,8 +414,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-02-21T23:04:17+08:00">
-                2020-02-21
+              <time title="更新于" itemprop="dateModified" datetime="2020-03-05T11:22:36+08:00">
+                2020-03-05
               </time>
             
           </span>
@@ -527,8 +527,8 @@
 <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="Ambari、HDP版本介绍"><a href="#Ambari、HDP版本介绍" class="headerlink" title="Ambari、HDP版本介绍"></a>Ambari、HDP版本介绍</h2><ul>
 <li>Ambari 2.7.4.0支持HDP-3.1.4使用以下URL确定对每个产品版本的支持<br><a href="https://supportmatrix.hortonworks.com/" target="_blank" rel="noopener">https://supportmatrix.hortonworks.com/</a>，以及下载报告</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220201704962.png" alt="image-20200220201704962"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220201743769.png" alt="image-20200220201743769"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220201704962.png" alt="image-20200220201704962"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220201743769.png" alt="image-20200220201743769"></p>
 <h2 id="搭建环境准备"><a href="#搭建环境准备" class="headerlink" title="搭建环境准备"></a>搭建环境准备</h2><h3 id="软件要求"><a href="#软件要求" class="headerlink" title="软件要求"></a>软件要求</h3><table>
 <thead>
 <tr>
@@ -576,7 +576,7 @@
 <h3 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h3><ul>
 <li>Centos 7清华镜像 <a href="https://mirrors.tuna.tsinghua.edu.cn/centos/7/isos/x86_64/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/centos/7/isos/x86_64/</a></li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220202924124.png" alt="image-20200220202924124"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220202924124.png" alt="image-20200220202924124"></p>
 <ul>
 <li>Ambari 2.7.4.0安装包下载地址：<a href="https://docs.cloudera.com/HDPDocuments/Ambari-2.7.4.0/bk_ambari-installation/content/ambari_repositories.html" target="_blank" rel="noopener">https://docs.cloudera.com/HDPDocuments/Ambari-2.7.4.0/bk_ambari-installation/content/ambari_repositories.html</a></li>
 <li>HDP 3.1.4.0、HDP-GPL-3.1.4.0 和 HDP-UTILS 1.1.0.22安装包下载地址：<a href="https://docs.cloudera.com/HDPDocuments/Ambari-2.7.4.0/bk_ambari-installation/content/hdp_314_repositories.html" target="_blank" rel="noopener">https://docs.cloudera.com/HDPDocuments/Ambari-2.7.4.0/bk_ambari-installation/content/hdp_314_repositories.html</a></li>
@@ -630,49 +630,49 @@
 <h1 id="搭建虚拟机"><a href="#搭建虚拟机" class="headerlink" title="搭建虚拟机"></a>搭建虚拟机</h1><ul>
 <li>搭建yum.hdp虚拟机，然后完成克隆，虚拟机搭建完毕。</li>
 </ul>
-<h2 id="搭建yum-hdp虚拟机"><a href="#搭建yum-hdp虚拟机" class="headerlink" title="搭建yum.hdp虚拟机"></a>搭建yum.hdp虚拟机</h2><p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203046966.png" alt="image-20200220203046966"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203059759.png" alt="image-20200220203059759"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203110491.png" alt="image-20200220203110491"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203122553.png" alt="image-20200220203122553"></p>
+<h2 id="搭建yum-hdp虚拟机"><a href="#搭建yum-hdp虚拟机" class="headerlink" title="搭建yum.hdp虚拟机"></a>搭建yum.hdp虚拟机</h2><p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203046966.png" alt="image-20200220203046966"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203059759.png" alt="image-20200220203059759"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203110491.png" alt="image-20200220203110491"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203122553.png" alt="image-20200220203122553"></p>
 <h2 id="配置yum-hdp虚拟机"><a href="#配置yum-hdp虚拟机" class="headerlink" title="配置yum.hdp虚拟机"></a>配置yum.hdp虚拟机</h2><h3 id="配置静态IP"><a href="#配置静态IP" class="headerlink" title="配置静态IP"></a>配置静态IP</h3><ul>
 <li>打开文件：vi /etc/sysconfig/network-scripts/ifcfg-ens192</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203240722.png" alt="image-20200220203240722"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203240722.png" alt="image-20200220203240722"></p>
 <ul>
 <li>重启：service network start</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203311168.png" alt="image-20200220203311168"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203311168.png" alt="image-20200220203311168"></p>
 <ul>
 <li>查看：ifconfig【安装命令：yum -y install net-tools】</li>
 </ul>
 <h3 id="防火墙设置"><a href="#防火墙设置" class="headerlink" title="防火墙设置"></a>防火墙设置</h3><ul>
 <li>查看防火墙的状态：systemctl status firewalld.service</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203726175.png" alt="image-20200220203726175"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203726175.png" alt="image-20200220203726175"></p>
 <ul>
 <li>关闭防火墙：systemctl stop firewalld.service</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203751452.png" alt="image-20200220203751452"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203751452.png" alt="image-20200220203751452"></p>
 <ul>
 <li>设置开机不启动：systemctl disable firewalld.service</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203847349.png" alt="image-20200220203847349"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203847349.png" alt="image-20200220203847349"></p>
 <ul>
 <li>查看防火墙服务是否设置开机启动：systemctl is-enabled firewalld.service</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203917637.png" alt="image-20200220203917637"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203917637.png" alt="image-20200220203917637"></p>
 <h3 id="设置hostname"><a href="#设置hostname" class="headerlink" title="设置hostname"></a>设置hostname</h3><ul>
 <li>设置hosts：vi /etc/hosts</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204121994.png" alt="image-20200220204121994"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204121994.png" alt="image-20200220204121994"></p>
 <ul>
 <li>修改：vi /etc/sysconfig/network</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204157475.png" alt="image-20200220204157475"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204157475.png" alt="image-20200220204157475"></p>
 <ul>
 <li>执行：hostnamectl set-hostname yum.hdp</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204208509.png" alt="image-20200220204208509"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204208509.png" alt="image-20200220204208509"></p>
 <h3 id="安装时间同步服务（ntp）"><a href="#安装时间同步服务（ntp）" class="headerlink" title="安装时间同步服务（ntp）"></a>安装时间同步服务（ntp）</h3><ul>
 <li><p>安装：yum install -y ntp</p>
 </li>
@@ -681,11 +681,11 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start ntpd.service</span><br><span class="line">systemctl status ntpd.service</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204341095.png" alt="image-20200220204341095"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204341095.png" alt="image-20200220204341095"></p>
 <ul>
 <li>设置开机自启：systemctl enable ntpd.service</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204349178.png" alt="image-20200220204349178"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204349178.png" alt="image-20200220204349178"></p>
 <h3 id="安装并配置JDK"><a href="#安装并配置JDK" class="headerlink" title="安装并配置JDK"></a>安装并配置JDK</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tar –xvzf jdk-8u221-linux-x64.tar.gz</span><br><span class="line"> </span><br><span class="line">vi /etc/profile</span><br><span class="line">export JAVA_HOME=/opt/jdk1.8.0_221</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">source /etc/profile</span><br><span class="line"> </span><br><span class="line">java -version</span><br></pre></td></tr></table></figure>
 
 <h3 id="安装并配置scala"><a href="#安装并配置scala" class="headerlink" title="安装并配置scala"></a>安装并配置scala</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar –xvzf scala-2.11.12.tgz</span><br><span class="line"> </span><br><span class="line">vi /etc/profile</span><br><span class="line">export SCALA_HOME=/opt/scala-2.11.12</span><br><span class="line">export PATH=$PATH:$SCALA_HOME/bin</span><br><span class="line">source /etc/profile</span><br><span class="line"> </span><br><span class="line">scala -version</span><br></pre></td></tr></table></figure>
@@ -693,21 +693,21 @@
 <h3 id="关闭Selinux和THP（如果不关闭THP，Hadoop的系统CPU使用率很高）"><a href="#关闭Selinux和THP（如果不关闭THP，Hadoop的系统CPU使用率很高）" class="headerlink" title="关闭Selinux和THP（如果不关闭THP，Hadoop的系统CPU使用率很高）"></a>关闭Selinux和THP（如果不关闭THP，Hadoop的系统CPU使用率很高）</h3><ul>
 <li>查看状态：sestatus</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204627146.png" alt="image-20200220204627146"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204627146.png" alt="image-20200220204627146"></p>
 <ul>
 <li>关闭：vim /etc/sysconfig/selinux</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204649551.png" alt="image-20200220204649551"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204649551.png" alt="image-20200220204649551"></p>
 <ul>
 <li>如果出现下述结果说明启动了THP</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204703098.png" alt="image-20200220204703098"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204703098.png" alt="image-20200220204703098"></p>
 <ul>
 <li>永久关闭：vim /etc/rc.d/rc.local</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if test -f /sys/kernel/mm/transparent_hugepage/enabled; then</span><br><span class="line">        echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled</span><br><span class="line">fi</span><br><span class="line">if test -f /sys/kernel/mm/transparent_hugepage/defrag; then</span><br><span class="line">        echo never &gt; /sys/kernel/mm/transparent_hugepage/defrag</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204715380.png" alt="image-20200220204715380"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204715380.png" alt="image-20200220204715380"></p>
 <ul>
 <li>保存退出，然后赋予rc.local文件执行权限：chmod +x /etc/rc.d/rc.local</li>
 <li>重启：reboot</li>
@@ -718,8 +718,8 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*       soft    nofile  65535</span><br><span class="line">*       hard    nofile  65535</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204746159.png" alt="image-20200220204746159"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204753727.png" alt="image-20200220204753727"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204746159.png" alt="image-20200220204746159"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204753727.png" alt="image-20200220204753727"></p>
 <h2 id="克隆yum-hdp虚拟机"><a href="#克隆yum-hdp虚拟机" class="headerlink" title="克隆yum.hdp虚拟机"></a>克隆yum.hdp虚拟机</h2><h3 id="开始克隆"><a href="#开始克隆" class="headerlink" title="开始克隆"></a>开始克隆</h3><ul>
 <li>克隆另外三台虚拟机：yum.hdp、nd-00.hdp、nd-01.hdp、nd-02.hdp</li>
 </ul>
@@ -727,19 +727,19 @@
 <li>启动nd-00.hdp，nd-01.hdp，nd-02.hdp虚拟机，并修改虚拟机的IP地址</li>
 <li>vi /etc/sysconfig/network-scripts/ifcfg-ens192</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204933844.png" alt="image-20200220204933844"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204933844.png" alt="image-20200220204933844"></p>
 <ul>
 <li>重启network：service network start</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204946224.png" alt="image-20200220204946224"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204946224.png" alt="image-20200220204946224"></p>
 <ul>
 <li>修改虚拟机hostname：vi /etc/sysconfig/network</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205002542.png" alt="image-20200220205002542"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205002542.png" alt="image-20200220205002542"></p>
 <ul>
 <li>修改虚拟机hostname：hostnamectl set-hostname nd-00.hdp</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205015834.png" alt="image-20200220205015834"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205015834.png" alt="image-20200220205015834"></p>
 <ul>
 <li>关闭虚拟机，并重新分配内存</li>
 </ul>
@@ -752,17 +752,17 @@
 
 </li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205154210.png" alt="image-20200220205154210"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205154210.png" alt="image-20200220205154210"></p>
 <ul>
 <li>此时MySQL已经开始正常运行，不过要想进入MySQL还得先找出此时root用户的密码，通过如下命令可以在日志文件中找出密码：cat /var/log/mysqld.log | grep pass</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205203712.png" alt="image-20200220205203712"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205203712.png" alt="image-20200220205203712"></p>
 <ul>
 <li>输入初始密码，此时不能做任何事情，因为MySQL默认必须修改密码之后才能操作数据库</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set global validate_password_policy=0;</span><br><span class="line">set global validate_password_length=1;</span><br><span class="line">ALTER USER 'root'@'localhost' IDENTIFIED BY 'root123';</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205214164.png" alt="image-20200220205214164"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205214164.png" alt="image-20200220205214164"></p>
 <ul>
 <li>但此时还有一个问题，就是因为安装了Yum Repository，以后每次yum操作都会自动更新，需要把这个卸载掉</li>
 </ul>
@@ -773,25 +773,25 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在[mysqld]下添加</span><br><span class="line">collation_server=utf8_general_ci</span><br><span class="line">character_set_server=utf8</span><br><span class="line">default-storage-engine=INNODB</span><br><span class="line">在[client]下添加（如果没有[client]，则创建）</span><br><span class="line">default_character-set=utf8</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205230941.png" alt="image-20200220205230941"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205230941.png" alt="image-20200220205230941"></p>
 <ul>
 <li>重启mysql服务：systemctl restart mysqld.service</li>
 <li>查看字符集： show variables like ‘character_set_%’ ;</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205239792.png" alt="image-20200220205239792"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205239792.png" alt="image-20200220205239792"></p>
 <h3 id="在mysql数据库创建相应的用户和DB"><a href="#在mysql数据库创建相应的用户和DB" class="headerlink" title="在mysql数据库创建相应的用户和DB"></a>在mysql数据库创建相应的用户和DB</h3><ul>
 <li>创建ambari数据库及数据库的用户名和密码</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">set global validate_password_policy=0;</span><br><span class="line">set global validate_password_length=1;</span><br><span class="line">create database ambari character set utf8;</span><br><span class="line">CREATE USER 'ambari'@'%'IDENTIFIED BY 'Ambari123';</span><br><span class="line">GRANT ALL PRIVILEGES ON ambari.* TO 'ambari'@'%';</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205516910.png" alt="image-20200220205516910"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205516910.png" alt="image-20200220205516910"></p>
 <ul>
 <li>创建hive数据库及hive库的用户名和密码</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create database hive character set utf8;</span><br><span class="line">CREATE USER 'hive'@'%'IDENTIFIED BY 'Hive123';</span><br><span class="line">GRANT ALL PRIVILEGES ON hive.* TO 'hive'@'%';</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205531051.png" alt="image-20200220205531051"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205541563.png" alt="image-20200220205541563"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205531051.png" alt="image-20200220205531051"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205541563.png" alt="image-20200220205541563"></p>
 <ul>
 <li>下载mysql-connection-java：</li>
 </ul>
@@ -802,12 +802,12 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /usr/share/java/mysql-connector-java.jar</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205552949.png" alt="image-20200220205552949"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205552949.png" alt="image-20200220205552949"></p>
 <h3 id="免密登录"><a href="#免密登录" class="headerlink" title="免密登录"></a>免密登录</h3><ul>
 <li>配置本地hosts文件</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205653230.png" alt="image-20200220205653230"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205708704.png" alt="image-20200220205708704"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205653230.png" alt="image-20200220205653230"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205708704.png" alt="image-20200220205708704"></p>
 <ul>
 <li>nd-00.hdp ⇒ 00，01，02的免密登录：</li>
 </ul>
@@ -823,7 +823,7 @@
 <h2 id="安装Apache-httpd"><a href="#安装Apache-httpd" class="headerlink" title="安装Apache httpd"></a>安装Apache httpd</h2><ul>
 <li>上传下载文件hdp-3.1.4（借助xftp工具）</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205840641.png" alt="image-20200220205840641"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205840641.png" alt="image-20200220205840641"></p>
 <ul>
 <li>使用yum在线安装httpd</li>
 </ul>
@@ -834,18 +834,18 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl start httpd        # 启动httpd</span><br><span class="line">systemctl status httpd        # 查看httpd状态</span><br><span class="line">systemctl enable httpd        # 设置httpd开机自启</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205853444.png" alt="image-20200220205853444"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205853444.png" alt="image-20200220205853444"></p>
 <ul>
 <li>默认端口80，浏览器输入：<a href="http://yum.hdp" target="_blank" rel="noopener">http://yum.hdp</a></li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205906904.png" alt="image-20200220205906904"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205906904.png" alt="image-20200220205906904"></p>
 <ul>
 <li>httpd 会生成 /var/www/html目录（相当于Tomcat的webapps目录），进入到/var/www/html目录下，创建ambari和hdp目录，用来存放安装文件。</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir /var/www/html/ambari</span><br><span class="line">mkdir /var/www/html/hdp</span><br><span class="line">mkdir /var/www/html/hdp/HDP-UTILS-1.1.0.22</span><br><span class="line">mkdir /var/www/html/hdp/HDP-GPL-3.1.4.0</span><br><span class="line">tar -zxvf ambari-2.7.4.0-centos7.tar.gz -C /var/www/html/ambari/</span><br><span class="line">tar -zxvf HDP-3.1.4.0-centos7-rpm.tar.gz -C /var/www/html/hdp/</span><br><span class="line">tar -zxvf HDP-UTILS-1.1.0.22-centos7.tar.gz -C /var/www/html/hdp/HDP-UTILS-1.1.0.22/</span><br><span class="line">tar -zxvf HDP-GPL-3.1.4.0-centos7-gpl.tar.gz -C /var/www/html/hdp/HDP-GPL-3.1.4.0/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205924855.png" alt="image-20200220205924855"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205934705.png" alt="image-20200220205934705"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205924855.png" alt="image-20200220205924855"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205934705.png" alt="image-20200220205934705"></p>
 <h2 id="配置本地-Repo"><a href="#配置本地-Repo" class="headerlink" title="配置本地 Repo"></a>配置本地 Repo</h2><h3 id="配置Ambari"><a href="#配置Ambari" class="headerlink" title="配置Ambari"></a>配置Ambari</h3><ul>
 <li>修改配置文件：ambari.repo</li>
 </ul>
@@ -865,7 +865,7 @@
 <h3 id="分发ambari-repo和hdp-repo、hdp-gpl-repo"><a href="#分发ambari-repo和hdp-repo、hdp-gpl-repo" class="headerlink" title="分发ambari.repo和hdp.repo、hdp.gpl.repo"></a>分发ambari.repo和hdp.repo、hdp.gpl.repo</h3><ul>
 <li>repo文件放到/etc/yum.repos.d</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220210120836.png" alt="image-20200220210120836"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220210120836.png" alt="image-20200220210120836"></p>
 <ul>
 <li>把repo文件分发到各个节点的相同目录下</li>
 </ul>
@@ -891,10 +891,10 @@
 <ul>
 <li>使用ambari登录</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220210351496.png" alt="image-20200220210351496"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220210351496.png" alt="image-20200220210351496"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> <span class="built_in">source</span> /var/lib/ambari-server/resources/Ambari-DDL-MySQL-CREATE.sql;</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 执行完，查看有无报错信息，并查看数据表</span></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> show tables;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220210403897.png" alt="image-20200220210403897"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220210403897.png" alt="image-20200220210403897"></p>
 <h2 id="启动Ambari-Server"><a href="#启动Ambari-Server" class="headerlink" title="启动Ambari-Server"></a>启动Ambari-Server</h2><ul>
 <li>如果启动失败，关闭服务【ambari-server stop】，重新启动</li>
 </ul>
@@ -905,48 +905,48 @@
 </ul>
 <p><code>yum -y install ambari-agent</code></p>
 <h2 id="访问Ambari-web页面"><a href="#访问Ambari-web页面" class="headerlink" title="访问Ambari web页面"></a>访问Ambari web页面</h2><p>默认端口8080，Username：admin；Password：admin；<a href="http://192.168.121.100:8080" target="_blank" rel="noopener">http://192.168.121.100:8080</a></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220210612837.png" alt="image-20200220210612837"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220210612837.png" alt="image-20200220210612837"></p>
 <h1 id="开始安装集群"><a href="#开始安装集群" class="headerlink" title="开始安装集群"></a>开始安装集群</h1><ul>
 <li>配置集群名称</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211102777.png" alt="image-20200220211102777"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211102777.png" alt="image-20200220211102777"></p>
 <ul>
 <li>选择版本</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211115145.png" alt="image-20200220211115145"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211115145.png" alt="image-20200220211115145"></p>
 <ul>
 <li>配置节点、密钥</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211127892.png" alt="image-20200220211127892"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211127892.png" alt="image-20200220211127892"></p>
 <ul>
 <li>主机确认</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211139211.png" alt="image-20200220211139211"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211139211.png" alt="image-20200220211139211"></p>
 <ul>
 <li>选择大数据组件</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211148792.png" alt="image-20200220211148792"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211148792.png" alt="image-20200220211148792"></p>
 <ul>
 <li>节点分配</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211157937.png" alt="image-20200220211157937"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211157937.png" alt="image-20200220211157937"></p>
 <ul>
 <li>分配从属和客户端</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211206645.png" alt="image-20200220211206645"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211206645.png" alt="image-20200220211206645"></p>
 <ul>
 <li>定制服务</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211215821.png" alt="image-20200220211215821"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211224207.png" alt="image-20200220211224207"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211215821.png" alt="image-20200220211215821"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211224207.png" alt="image-20200220211224207"></p>
 <p><code>ambari-server setup --jdbc-db=mysql --jdbc-driver=/usr/share/java/mysql-connector-java.jar</code></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211233909.png" alt="image-20200220211233909"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211233909.png" alt="image-20200220211233909"></p>
 <ul>
 <li>集群整体概况，点击部署</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211245700.png" alt="image-20200220211245700"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211259349.png" alt="image-20200220211259349"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211311916.png" alt="image-20200220211311916"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211245700.png" alt="image-20200220211245700"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211259349.png" alt="image-20200220211259349"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211311916.png" alt="image-20200220211311916"></p>
 <ul>
 <li><p>等待启动完毕，不用担心警告，后期可以调整，搭建完成，可以在展示页面进行查看集群状态。</p>
 </li>
@@ -957,7 +957,7 @@
 <li>python3环境运行报错，改成python2</li>
 </ul>
 <p><code>vi /usr/bin/hdp-select</code></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211348465.png" alt="image-20200220211348465"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211348465.png" alt="image-20200220211348465"></p>
 <h2 id="openssl版本的问题："><a href="#openssl版本的问题：" class="headerlink" title="openssl版本的问题："></a>openssl版本的问题：</h2><ul>
 <li>EOF occurred in violation of protocol</li>
 </ul>
@@ -1044,7 +1044,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/20/ChainLink-the-oracle-connecting-the-two-worlds/" rel="next" title="ChainLink、预言机与两个世界的连接">
+              <a href="/2020/02/20/ChainLink-%E9%A2%84%E8%A8%80%E6%9C%BA%E4%B8%8E%E4%B8%A4%E4%B8%AA%E4%B8%96%E7%95%8C%E7%9A%84%E8%BF%9E%E6%8E%A5/" rel="next" title="ChainLink、预言机与两个世界的连接">
                 <i class="fa fa-chevron-left"></i> ChainLink、预言机与两个世界的连接
               </a>
             

@@ -8,13 +8,15 @@
 </blockquote>
 <a id="more"></a>
 
+<blockquote>
 <p>大家好，今天给大家分享的主题是《DeFi: 理论与实践》，我将介绍 DeFi 的定义、内核以及在具体领域的实践，最后聊一聊 DeFi 的再定义与方向。</p>
+</blockquote>
 <h2 id="DeFi-的定义与内核"><a href="#DeFi-的定义与内核" class="headerlink" title="DeFi 的定义与内核"></a><strong>DeFi 的定义与内核</strong></h2><p>首先我们来谈一谈 DeFi 的定义。DeFi 的全称是 Decentralized Finance - 去中心化金融。</p>
-<img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215024521.png" alt="image-20200222215024521" style="zoom:80%;">
+<img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200222215024521.png" alt="image-20200222215024521" style="zoom:80%;">
 
 <p>金融的概念我们一般都比较了解，那么去中心化呢？我们往往会想到以下的概念：分布式、透明性、抗审查、不可更改等。在我看来，以上这些并非去中心化金融的核心以及优势，分布式并非区块链独有，透明性、抗审查性以及不可更改对金融行业而言很难兼容。去中心化金融的核心和优势在于 <strong>无需准入</strong>。</p>
 <p><strong>什么是无需准入？无需准入有三个层级：开发者的无需准入、节点的无需准入和用户的无需准入</strong>。</p>
-<img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215124453.png" alt="image-20200222215124453" style="zoom:80%;">
+<img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200222215124453.png" alt="image-20200222215124453" style="zoom:80%;">
 
 <ul>
 <li>开发者的无需准入意味着项目的代码开源，任何开发者都可以通过 Pull Request 的形式参与代码和协议的更新，一个例子是以太坊。</li>
@@ -24,38 +26,38 @@
 <p><strong>个人认为，只需要满足使用者无需准入的金融项目都可以属于去中心化金融的范畴，而开发者以及节点的无需准入一般需要在效率、安全与去中心化中权衡</strong>。</p>
 <p>围绕无需准入，还有“不可能三角”的特性：自动化、鲁棒性以及不可更改性。完全自动化、不可更改的网络如同火箭工程，在异常故障、恶意攻击和失误下保持系统的鲁棒性 (Robustness) 难度近乎苛刻。尤其是处在早期的去中心化金融项目，不可避免需要取舍。</p>
 <h2 id="金融领域的去中心化"><a href="#金融领域的去中心化" class="headerlink" title="金融领域的去中心化"></a><strong>金融领域的去中心化</strong></h2><p>当我们在谈去中心化金融的时候，往往会将去中心化（区块链）作为主体，然后讨论和设计具有金融属性的应用和协议。但更加全面和系统地理解去中心化金融，我更倾向于以金融为体，思考哪些领域可以去中心化。在我看来，有以下几个方面和实例：</p>
-<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215222939.png" alt="image-20200222215222939"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200222215222939.png" alt="image-20200222215222939"></p>
 <h3 id="融资"><a href="#融资" class="headerlink" title="融资"></a><strong>融资</strong></h3><p>融资是指项目向外界筹集资金，无需准入的融资则是完全意义上的众筹。传统的众筹 (Crowdfunding) 是以产品和服务为回报募集资金。而区块链上的融资则以代币为回报，募集代币或者法币，也就是 ICO（首次代币发行）。</p>
 <p>尽管饱受争议，但是 ICO 可以说是区块链上的第一个具有金融属性的应用落地。最早的首次代币发行是 Mastercoin，试图在比特币网络的基础上开发金融协议。虽然 Mastercoin 本身失败了，但其通过 ICO 募集了 500 比特币，后来转型为大家熟知的 Tether 网络 - Omni。</p>
 <p>在 Mastercoin 之后，我们又看到了包括以太坊在内的大型 ICO，尤其是在 ERC20 标准后，首次代币发行变得更加容易和受欢迎。</p>
 <h3 id="商用金融软件"><a href="#商用金融软件" class="headerlink" title="商用金融软件"></a><strong>商用金融软件</strong></h3><p>不过，早期的区块链项目融资的软件设施非常的原生态，甚至简陋。投资人需要使用命令行和掌握基本的编程知识才能参与。这是一个很大的门槛。</p>
-<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215337456.png" alt="image-20200222215337456"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200222215337456.png" alt="image-20200222215337456"></p>
 <p>随着（去中心化和中心化）商用软件的不断开发，区块链上的金融服务才不断让普通人得以方便使用。比如网页端的钱包 (Metamask)，手机端 imToken 和交易与支付的 DApp。</p>
 <h3 id="存贷款"><a href="#存贷款" class="headerlink" title="存贷款"></a><strong>存贷款</strong></h3><p>有了外部资金和好用的软件，去中心化金融可以有规模化的采用和涉及金融的核心功能——基于稳定币的存贷款。</p>
 <p>MakerDAO 是从2015年开始的项目，其发行的稳定币 Dai 成了以太坊上的基础货币和贷款引擎。如果将以太坊看做是黄金储备，那么 Dai 便是超额“以太坊本位”储备下发行的央行货币。</p>
-<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215429710.png" alt="image-20200222215429710"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200222215429710.png" alt="image-20200222215429710"></p>
 <p><a href="https://mp.weixin.qq.com/s?biz=MzI4NTg4NzA3Mg==&mid=2247484564&idx=2&sn=2b7f775ea04ce47a840dfb7ae5d5a8e1&chksm=ebe41b9bdc93928d1d3a0c15daabf8b4292f66cc3ff5662c46c35dc4effde9b4257fb6fa0617&mpshare=1&scene=21&srcid=0401YZwmb9V6l4NuwYtS2IDo&key=fd47cfb2e36ff9534a83d2dccbf60b865974b82c7f365807cab31c2363da4049bef3ac4f5150f43ff26bff172688b41a8eb943ad39472ad0cf6eed0da30cfa6ad170ce749ba6797e0f3ee7b0b20f11d2&ascene=1&uin=Mjc4MjA1NTcyNA==&devicetype=Windows%2010&version=62060739&lang=zh_CN&pass_ticket=1/s%20pPjP1rtD2q8UhidykDK38ejkDodC1RjdZmTcX%20Z%20Am9ZkwPdQGc6hypgYkK5#wechat_redirect" target="_blank" rel="noopener">深入浅出理解 MakerDAO</a></p>
 <p>在 Dai 作为“高能货币”的背景下，市场上出现了以其他资产为储备发行的衍生货币。比如以无需托管资金池、根据供需自动调节利率的“商业银行” Compound。</p>
-<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215641556.png" alt="image-20200222215641556"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200222215641556.png" alt="image-20200222215641556"></p>
 <p>而点对点形式的借贷协议，也有 Dharma 等为代表。</p>
-<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215701959.png" alt="image-20200222215701959"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200222215701959.png" alt="image-20200222215701959"></p>
 <h3 id="衍生品"><a href="#衍生品" class="headerlink" title="衍生品"></a><strong>衍生品</strong></h3><p>在基础货币和贷款之外，这个生态里自然地出现了衍生品，比如保证金交易 (dYdX) 和二元期权 (Augur) 等。</p>
 <p>在中心化的保证金交易市场里，配资仅限于买入标的资产（即需要对手方），且只有在平仓时才会结算。基于公链的衍生品不需要对手方且可自由流通。</p>
-<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215727632.png" alt="image-20200222215727632"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200222215727632.png" alt="image-20200222215727632"></p>
 <p>预测市场是二元期权的一种形式，由于只需要在结算时提供公认的结果，区块链账本的透明和智能合约的自动执行和结算的特点是天然的优势。</p>
-<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215752651.png" alt="image-20200222215752651"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200222215752651.png" alt="image-20200222215752651"></p>
 <p><strong>还有许多将传统资产隐射到链上的金融合成品，如美股指数，让普通人可以不受限地、低成本地参与之前无法获得的衍生品投资</strong>。</p>
 <h3 id="投资管理"><a href="#投资管理" class="headerlink" title="投资管理"></a><strong>投资管理</strong></h3><p>在有了相对丰富的金融产品后，投资管理是另一个可以去中心化实现的领域。通过自动执行的合约和无需准入的网络，基于区块链的协议（如 Melonport）可以将过去只属于证券公司的蛋糕分给专业的独立投资人。</p>
 <h3 id="交易与支付"><a href="#交易与支付" class="headerlink" title="交易与支付"></a><strong>交易与支付</strong></h3><p>最后我们看一下交易与支付领域。去中心化交易所相信对大家来说已经不是陌生事，往往被人们忽视的一点，在区块链上的金融应用，无需托管的去中心化交易反而能够提供更快、更安全的清结算和流动性。</p>
 <p><strong>就支付而言，二层甚至多层网络</strong>，即通过质押资产或者状态通道的方式，将一部分追求速度的交易放在链下进行，把要求交易安全和最终性的交易放在主链，<strong>已经相对成熟</strong>。我们已经看到一些接近主流支付工具的去中心化支付解决方案。</p>
-<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215822023.png" alt="image-20200222215822023"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200222215822023.png" alt="image-20200222215822023"></p>
 <h2 id="去中心化金融的再定义与方向"><a href="#去中心化金融的再定义与方向" class="headerlink" title="去中心化金融的再定义与方向"></a><strong>去中心化金融的再定义与方向</strong></h2><p>带着这些实例回到最初的讨论，我们看到 DeFi 的核心是围绕着无需准入、低门槛进行的。<strong>去中心化金融的目标不是去中心化本身，而是更加开放和公平。</strong></p>
 <p>这 Open Banking 很是接近。只是 Open Banking 给第三方的权限仅在于可读的 API，而 DeFi 给普通用户可读、可控甚至作为记账人的权力。</p>
 <p>DeFi 与传统 FinTech 的区别在于后者基于数据与机器学习算法，实现更精准的信用评估和预测，而 DeFi 则是对所有参与者一视同仁，这既是初衷，但不得不承认的是，身份和信用体系是目前 DeFi 缺失的一环。</p>
 <p>可以预见的是，去中心化金融将和传统金融同时存在，去中心化金融将很好地补充中心化机构在跨境领域、利基市场和缺乏金融基础设施地区的支付、贷款与信用。</p>
 <p><strong>Bank the unbanked, Serve the underserved.</strong></p>
 <p>去中心化金融 (Decentralized Finance) 更好的名字应该是开放式金融 (Open Finance)。</p>
-<p><img src="/2020/02/22/DeFi-%E7%9A%84%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20200222215903278.png" alt="image-20200222215903278"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200222215903278.png" alt="image-20200222215903278"></p>
 ]]></content>
       <categories>
         <category>区块链</category>
@@ -133,7 +135,7 @@
     <content><![CDATA[<h1 id="Spark-资源管理架构"><a href="#Spark-资源管理架构" class="headerlink" title="Spark 资源管理架构"></a>Spark 资源管理架构</h1><p>首先介绍 Spark 的资源管理架构。Spark 集群考虑到了未来对接一些更强大的资源管理系统（如 Yarn、Mesos 等）没有在资源管理的设计上对外封闭，所以Spark 架构设计时将资源管理抽象出了一层，通过这种抽象能够构建一种插件式的资源管理模块。</p>
  <a id="more"></a>
 
-<img src="/2020/02/21/Spark-On-Yarn%E5%8E%9F%E7%90%86/image-20200221231422026.png" alt="image-20200221231422026" style="zoom:50%;">
+<img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200221231422026.png" alt="image-20200221231422026" style="zoom:50%;">
 
 <p>如图所示是 Spark 的资源管理架构图。Master 是 Spark 的 主控节点，在实际的生产环境中会有多个 Master，只有一个 Master 处于 active 状态。Worker 是 Spark 的工作节点，向 Master 汇报自身的资源、Executeor 执行状态的改变，并接受 Master 的命令启动 Executor 或 Driver。Driver 是应用程序的驱动程序，每个应用包括许多小任务，Driver 负责推动这些小任务的有序执行。Executor 是 Spark 的工作进程，由 Worker 监管，负责具体任务的执行。</p>
 <p>以上就是 Spark 在资源管理上的抽象出来的架构，这个架构跟 Yarn 的架构十分相似，因此 Spark 很容易地构建于 Yarn 之上。在 Spark 和 Yarn 两边的角色对比中：Master 和 ResourceManager 对应，Worker 和 NodeManager 对应，Driver 和 App Master 对应，Executor 和 Container 对应。</p>
@@ -144,11 +146,11 @@
 <li><strong>Standalone 模式</strong>：Spark 真正的集群模式，在这个模式下 Master 和 Worker 是独立的进程；</li>
 <li><strong>第三方部署模式</strong>：构建于 Yarn 或 Mesos 之上，由它们提供资源管理。</li>
 </ul>
-<h1 id="Spark-on-Yarn"><a href="#Spark-on-Yarn" class="headerlink" title="Spark on Yarn"></a>Spark on Yarn</h1><h2 id="Spark-on-Yarn-Cluster"><a href="#Spark-on-Yarn-Cluster" class="headerlink" title="Spark on Yarn-Cluster"></a>Spark on Yarn-Cluster</h2><img src="/2020/02/21/Spark-On-Yarn%E5%8E%9F%E7%90%86/image-20200221231532301.png" alt="image-20200221231532301" style="zoom:80%;">
+<h1 id="Spark-on-Yarn"><a href="#Spark-on-Yarn" class="headerlink" title="Spark on Yarn"></a>Spark on Yarn</h1><h2 id="Spark-on-Yarn-Cluster"><a href="#Spark-on-Yarn-Cluster" class="headerlink" title="Spark on Yarn-Cluster"></a>Spark on Yarn-Cluster</h2><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200221231532301.png" alt="image-20200221231532301" style="zoom:80%;">
 
 <p>客户端提交一个任务给 Yarn ResourceManager 后，App Manager 接受任务并找到一个 Container 创建App Master，此时 App Master 上运行的是 Spark Driver。之后 App Master 申请 Container 并启动，Spark Driver 在 Container 上启动 Spark Executor，并调度 Spark Task 在 Spark Executor 上运行，等到所有的任务执行完毕后，向 App Manager 取消注册并释放资源。</p>
 <p>可以看出这个执行流程和 Yarn 对一个任务的处理过程几乎一致，不同的是在 Spark on Yarn 的 Job 处理过程中 App Master、Container 是交由 Spark 相对应的角色去处理的。</p>
-<h2 id="Spark-on-Yarn-Client"><a href="#Spark-on-Yarn-Client" class="headerlink" title="Spark on Yarn-Client"></a>Spark on Yarn-Client</h2><img src="/2020/02/21/Spark-On-Yarn%E5%8E%9F%E7%90%86/image-20200221231547333.png" alt="image-20200221231547333" style="zoom:80%;">
+<h2 id="Spark-on-Yarn-Client"><a href="#Spark-on-Yarn-Client" class="headerlink" title="Spark on Yarn-Client"></a>Spark on Yarn-Client</h2><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200221231547333.png" alt="image-20200221231547333" style="zoom:80%;">
 
 <p>Spark on Yarn 还有另外一种运行模式：Spark on Yarn-Client。不同于上述的 Spark on Yarn-Cluster，Spark on Yarn-Client 的客户端在提交完任务之后不会将 Spark Driver 托管给 Yarn，而是在客户端运行。App Master 申请完 Container 之后同样也是由 Spark Driver 去启动 Spark Executor，执行任务。</p>
 <h2 id="yarn-cluster和yarn-client模式的区别"><a href="#yarn-cluster和yarn-client模式的区别" class="headerlink" title="yarn-cluster和yarn-client模式的区别"></a>yarn-cluster和yarn-client模式的区别</h2><p><strong>从广义上讲</strong>，yarn-cluster适用于生产环境；而yarn-client适用于交互和调试，也就是希望快速地看到application的输出。</p>
@@ -163,8 +165,8 @@
       </categories>
       <tags>
         <tag>大数据</tag>
-        <tag>Spark</tag>
         <tag>Yarn</tag>
+        <tag>Spark</tag>
       </tags>
   </entry>
   <entry>
@@ -177,7 +179,7 @@
 </ul>
 <a id="more"></a>
 
-<h2 id="Apache-Hadoop-的经典版本-MRv1"><a href="#Apache-Hadoop-的经典版本-MRv1" class="headerlink" title="Apache Hadoop 的经典版本 (MRv1)"></a>Apache Hadoop 的经典版本 (MRv1)</h2><p><img src="/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230505637.png" alt="image-20200221230505637"></p>
+<h2 id="Apache-Hadoop-的经典版本-MRv1"><a href="#Apache-Hadoop-的经典版本-MRv1" class="headerlink" title="Apache Hadoop 的经典版本 (MRv1)"></a>Apache Hadoop 的经典版本 (MRv1)</h2><p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200221230505637.png" alt="image-20200221230505637"></p>
 <p>大型的 Hadoop 集群显现出了由单个 JobTracker 导致的可伸缩性瓶颈。在集群中有 5,000 个节点和 40,000 个任务同时运行时，这样一种设计实际上就会受到限制。由于此限制，必须创建和维护更小的、功能更差的集群。</p>
 <p>此外，较小和较大的 Hadoop 集群都从未最高效地使用他们的计算资源。在 Hadoop MapReduce 中，每个从属节点上的计算资源由集群管理员分解为固定数量的 map 和 reduce slot，这些 slot 不可替代。设定 map slot 和 reduce slot 的数量后，节点在任何时刻都不能运行比 map slot 更多的 map 任务，即使没有 reduce 任务在运行。这影响了集群的利用率，因为在所有 map slot 都被使用（而且我们还需要更多）时，我们无法使用任何 reduce slot，即使它们可用，反之亦然。</p>
 <p>最后但同样重要的是，Hadoop 设计为仅运行 MapReduce 作业。随着替代性的编程模型（比如 Apache Giraph 所提供的图形处理）的到来，除 MapReduce 外，越来越需要为可通过高效的、公平的方式在同一个集群上运行并共享资源的其他编程模型提供支持。</p>
@@ -192,8 +194,8 @@
 <li>一个分布式应用程序代替一个 MapReduce 作业</li>
 </ul>
 <p>YARN 是下一代 Hadoop 计算平台，如下所示。</p>
-<h2 id="YARN-架构"><a href="#YARN-架构" class="headerlink" title="YARN 架构"></a>YARN 架构</h2><p><img src="/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230620139.png" alt="image-20200221230620139"></p>
-<p><img src="/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230631351.png" alt="image-20200221230631351"></p>
+<h2 id="YARN-架构"><a href="#YARN-架构" class="headerlink" title="YARN 架构"></a>YARN 架构</h2><p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200221230620139.png" alt="image-20200221230620139"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200221230631351.png" alt="image-20200221230631351"></p>
 <p>假设用户采用与 MRv1 中相同的方式键入 <code>hadoop jar</code> 命令，将应用程序提交到 ResourceManager。ResourceManager 维护在集群上运行的应用程序列表，以及每个活动的 NodeManager 上的可用资源列表。ResourceManager 需要确定哪个应用程序接下来应该获得一部分集群资源。该决策受到许多限制，比如队列容量、ACL 和公平性。ResourceManager 使用一个可插拔的 Scheduler。Scheduler 仅执行调度；它管理谁在何时获取集群资源（以容器的形式），但不会对应用程序内的任务执行任何监视，所以它不会尝试重新启动失败的任务。</p>
 <p>在 YARN 架构中，一个全局 ResourceManager 以主要后台进程的形式运行，它通常在专用机器上运行，在各种竞争的应用程序之间仲裁可用的集群资源。ResourceManager 会追踪集群中有多少可用的活动节点和资源，协调用户提交的哪些应用程序应该在何时获取这些资源。ResourceManager 是惟一拥有此信息的进程，所以它可通过某种共享的、安全的、多租户的方式制定分配（或者调度）决策（例如，依据应用程序优先级、队列容量、ACLs、数据位置等）。</p>
 <p>在用户提交一个应用程序时，一个称为 ApplicationMaster 的轻量型进程实例会启动来协调应用程序内的所有任务的执行。这包括监视任务，重新启动失败的任务，推测性地运行缓慢的任务，以及计算应用程序计数器值的总和。这些职责以前分配给所有作业的单个 JobTracker。ApplicationMaster 和属于它的应用程序的任务，在受 NodeManager 控制的资源容器中运行。</p>
@@ -201,7 +203,7 @@
 <p>有趣的是，ApplicationMaster 可在容器内运行任何类型的任务。例如，MapReduce ApplicationMaster 请求一个容器来启动 map 或 reduce 任务，而 Giraph ApplicationMaster 请求一个容器来运行 Giraph 任务。您还可以实现一个自定义的 ApplicationMaster 来运行特定的任务，进而发明出一种全新的分布式应用程序框架，改变大数据世界的格局。您可以查阅 Apache Twill，它旨在简化 YARN 之上的分布式应用程序的编写。</p>
 <p>在 YARN 中，MapReduce 降级为一个分布式应用程序的一个角色（但仍是一个非常流行且有用的角色），现在称为 MRv2。MRv2 是经典 MapReduce 引擎（现在称为 MRv1）的重现，运行在 YARN 之上。</p>
 <h2 id="Container"><a href="#Container" class="headerlink" title="Container"></a><strong>Container</strong></h2><p>容器（Container）这个东西是 Yarn 对资源做的一层抽象。就像我们平时开发过程中，经常需要对底层一些东西进行封装，只提供给上层一个调用接口一样，Yarn 对资源的管理也是用到了这种思想。</p>
-<img src="/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230721971.png" alt="image-20200221230721971" style="zoom:80%;">
+<img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200221230721971.png" alt="image-20200221230721971" style="zoom:80%;">
 
 <p>如上所示，Yarn 将CPU核数，内存这些计算资源都封装成为一个个的容器（Container）。需要注意两点：</p>
 <ul>
@@ -218,7 +220,7 @@
 <h3 id="ApplicationMaster"><a href="#ApplicationMaster" class="headerlink" title="ApplicationMaster"></a><strong>ApplicationMaster</strong></h3><p>每当 Client 提交一个 Application 时候，就会新建一个 ApplicationMaster 。由这个 ApplicationMaster 去与 ResourceManager 申请容器资源，获得资源后会将要运行的程序发送到容器上启动，然后进行分布式计算。</p>
 <p>这里可能有些难以理解，为什么是把运行程序发送到容器上去运行？如果以传统的思路来看，是程序运行着不动，然后数据进进出出不停流转。但当数据量大的时候就没法这么玩了，因为海量数据移动成本太大，时间太长。但是中国有一句老话<strong>山不过来，我就过去。</strong>大数据分布式计算就是这种思想，既然大数据难以移动，那我就把容易移动的应用程序发布到各个节点进行计算呗，这就是大数据分布式计算的思路。</p>
 <h3 id="NodeManager"><a href="#NodeManager" class="headerlink" title="NodeManager"></a><strong>NodeManager</strong></h3><p>NodeManager 是 ResourceManager 在每台机器的上代理，负责容器的管理，并监控他们的资源使用情况（cpu，内存，磁盘及网络等），以及向 ResourceManager/Scheduler 提供这些资源使用报告。</p>
-<h2 id="提交一个-Application-到-Yarn-的流程"><a href="#提交一个-Application-到-Yarn-的流程" class="headerlink" title="提交一个 Application 到 Yarn 的流程"></a><strong>提交一个 Application 到 Yarn 的流程</strong></h2><img src="/2020/02/21/Yarn%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/image-20200221230834987.png" alt="image-20200221230834987" style="zoom: 80%;">
+<h2 id="提交一个-Application-到-Yarn-的流程"><a href="#提交一个-Application-到-Yarn-的流程" class="headerlink" title="提交一个 Application 到 Yarn 的流程"></a><strong>提交一个 Application 到 Yarn 的流程</strong></h2><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200221230834987.png" alt="image-20200221230834987" style="zoom: 80%;">
 
 <p>这张图简单地标明了提交一个程序所经历的流程，接下来我们来具体说说每一步的过程。</p>
 <ol>
@@ -245,8 +247,8 @@
       </categories>
       <tags>
         <tag>大数据</tag>
-        <tag>Yarn</tag>
         <tag>Hadoop</tag>
+        <tag>Yarn</tag>
       </tags>
   </entry>
   <entry>
@@ -315,8 +317,8 @@
 <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="Ambari、HDP版本介绍"><a href="#Ambari、HDP版本介绍" class="headerlink" title="Ambari、HDP版本介绍"></a>Ambari、HDP版本介绍</h2><ul>
 <li>Ambari 2.7.4.0支持HDP-3.1.4使用以下URL确定对每个产品版本的支持<br><a href="https://supportmatrix.hortonworks.com/" target="_blank" rel="noopener">https://supportmatrix.hortonworks.com/</a>，以及下载报告</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220201704962.png" alt="image-20200220201704962"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220201743769.png" alt="image-20200220201743769"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220201704962.png" alt="image-20200220201704962"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220201743769.png" alt="image-20200220201743769"></p>
 <h2 id="搭建环境准备"><a href="#搭建环境准备" class="headerlink" title="搭建环境准备"></a>搭建环境准备</h2><h3 id="软件要求"><a href="#软件要求" class="headerlink" title="软件要求"></a>软件要求</h3><table>
 <thead>
 <tr>
@@ -364,7 +366,7 @@
 <h3 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h3><ul>
 <li>Centos 7清华镜像 <a href="https://mirrors.tuna.tsinghua.edu.cn/centos/7/isos/x86_64/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/centos/7/isos/x86_64/</a></li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220202924124.png" alt="image-20200220202924124"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220202924124.png" alt="image-20200220202924124"></p>
 <ul>
 <li>Ambari 2.7.4.0安装包下载地址：<a href="https://docs.cloudera.com/HDPDocuments/Ambari-2.7.4.0/bk_ambari-installation/content/ambari_repositories.html" target="_blank" rel="noopener">https://docs.cloudera.com/HDPDocuments/Ambari-2.7.4.0/bk_ambari-installation/content/ambari_repositories.html</a></li>
 <li>HDP 3.1.4.0、HDP-GPL-3.1.4.0 和 HDP-UTILS 1.1.0.22安装包下载地址：<a href="https://docs.cloudera.com/HDPDocuments/Ambari-2.7.4.0/bk_ambari-installation/content/hdp_314_repositories.html" target="_blank" rel="noopener">https://docs.cloudera.com/HDPDocuments/Ambari-2.7.4.0/bk_ambari-installation/content/hdp_314_repositories.html</a></li>
@@ -418,49 +420,49 @@
 <h1 id="搭建虚拟机"><a href="#搭建虚拟机" class="headerlink" title="搭建虚拟机"></a>搭建虚拟机</h1><ul>
 <li>搭建yum.hdp虚拟机，然后完成克隆，虚拟机搭建完毕。</li>
 </ul>
-<h2 id="搭建yum-hdp虚拟机"><a href="#搭建yum-hdp虚拟机" class="headerlink" title="搭建yum.hdp虚拟机"></a>搭建yum.hdp虚拟机</h2><p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203046966.png" alt="image-20200220203046966"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203059759.png" alt="image-20200220203059759"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203110491.png" alt="image-20200220203110491"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203122553.png" alt="image-20200220203122553"></p>
+<h2 id="搭建yum-hdp虚拟机"><a href="#搭建yum-hdp虚拟机" class="headerlink" title="搭建yum.hdp虚拟机"></a>搭建yum.hdp虚拟机</h2><p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203046966.png" alt="image-20200220203046966"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203059759.png" alt="image-20200220203059759"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203110491.png" alt="image-20200220203110491"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203122553.png" alt="image-20200220203122553"></p>
 <h2 id="配置yum-hdp虚拟机"><a href="#配置yum-hdp虚拟机" class="headerlink" title="配置yum.hdp虚拟机"></a>配置yum.hdp虚拟机</h2><h3 id="配置静态IP"><a href="#配置静态IP" class="headerlink" title="配置静态IP"></a>配置静态IP</h3><ul>
 <li>打开文件：vi /etc/sysconfig/network-scripts/ifcfg-ens192</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203240722.png" alt="image-20200220203240722"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203240722.png" alt="image-20200220203240722"></p>
 <ul>
 <li>重启：service network start</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203311168.png" alt="image-20200220203311168"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203311168.png" alt="image-20200220203311168"></p>
 <ul>
 <li>查看：ifconfig【安装命令：yum -y install net-tools】</li>
 </ul>
 <h3 id="防火墙设置"><a href="#防火墙设置" class="headerlink" title="防火墙设置"></a>防火墙设置</h3><ul>
 <li>查看防火墙的状态：systemctl status firewalld.service</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203726175.png" alt="image-20200220203726175"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203726175.png" alt="image-20200220203726175"></p>
 <ul>
 <li>关闭防火墙：systemctl stop firewalld.service</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203751452.png" alt="image-20200220203751452"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203751452.png" alt="image-20200220203751452"></p>
 <ul>
 <li>设置开机不启动：systemctl disable firewalld.service</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203847349.png" alt="image-20200220203847349"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203847349.png" alt="image-20200220203847349"></p>
 <ul>
 <li>查看防火墙服务是否设置开机启动：systemctl is-enabled firewalld.service</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220203917637.png" alt="image-20200220203917637"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220203917637.png" alt="image-20200220203917637"></p>
 <h3 id="设置hostname"><a href="#设置hostname" class="headerlink" title="设置hostname"></a>设置hostname</h3><ul>
 <li>设置hosts：vi /etc/hosts</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204121994.png" alt="image-20200220204121994"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204121994.png" alt="image-20200220204121994"></p>
 <ul>
 <li>修改：vi /etc/sysconfig/network</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204157475.png" alt="image-20200220204157475"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204157475.png" alt="image-20200220204157475"></p>
 <ul>
 <li>执行：hostnamectl set-hostname yum.hdp</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204208509.png" alt="image-20200220204208509"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204208509.png" alt="image-20200220204208509"></p>
 <h3 id="安装时间同步服务（ntp）"><a href="#安装时间同步服务（ntp）" class="headerlink" title="安装时间同步服务（ntp）"></a>安装时间同步服务（ntp）</h3><ul>
 <li><p>安装：yum install -y ntp</p>
 </li>
@@ -469,11 +471,11 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start ntpd.service</span><br><span class="line">systemctl status ntpd.service</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204341095.png" alt="image-20200220204341095"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204341095.png" alt="image-20200220204341095"></p>
 <ul>
 <li>设置开机自启：systemctl enable ntpd.service</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204349178.png" alt="image-20200220204349178"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204349178.png" alt="image-20200220204349178"></p>
 <h3 id="安装并配置JDK"><a href="#安装并配置JDK" class="headerlink" title="安装并配置JDK"></a>安装并配置JDK</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar –xvzf jdk-8u221-linux-x64.tar.gz</span><br><span class="line"> </span><br><span class="line">vi /etc/profile</span><br><span class="line">export JAVA_HOME=/opt/jdk1.8.0_221</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">source /etc/profile</span><br><span class="line"> </span><br><span class="line">java -version</span><br></pre></td></tr></table></figure>
 
 <h3 id="安装并配置scala"><a href="#安装并配置scala" class="headerlink" title="安装并配置scala"></a>安装并配置scala</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar –xvzf scala-2.11.12.tgz</span><br><span class="line"> </span><br><span class="line">vi /etc/profile</span><br><span class="line">export SCALA_HOME=/opt/scala-2.11.12</span><br><span class="line">export PATH=$PATH:$SCALA_HOME/bin</span><br><span class="line">source /etc/profile</span><br><span class="line"> </span><br><span class="line">scala -version</span><br></pre></td></tr></table></figure>
@@ -481,21 +483,21 @@
 <h3 id="关闭Selinux和THP（如果不关闭THP，Hadoop的系统CPU使用率很高）"><a href="#关闭Selinux和THP（如果不关闭THP，Hadoop的系统CPU使用率很高）" class="headerlink" title="关闭Selinux和THP（如果不关闭THP，Hadoop的系统CPU使用率很高）"></a>关闭Selinux和THP（如果不关闭THP，Hadoop的系统CPU使用率很高）</h3><ul>
 <li>查看状态：sestatus</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204627146.png" alt="image-20200220204627146"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204627146.png" alt="image-20200220204627146"></p>
 <ul>
 <li>关闭：vim /etc/sysconfig/selinux</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204649551.png" alt="image-20200220204649551"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204649551.png" alt="image-20200220204649551"></p>
 <ul>
 <li>如果出现下述结果说明启动了THP</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204703098.png" alt="image-20200220204703098"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204703098.png" alt="image-20200220204703098"></p>
 <ul>
 <li>永久关闭：vim /etc/rc.d/rc.local</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">if test -f /sys/kernel/mm/transparent_hugepage/enabled; then</span><br><span class="line">        echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled</span><br><span class="line">fi</span><br><span class="line">if test -f /sys/kernel/mm/transparent_hugepage/defrag; then</span><br><span class="line">        echo never &gt; /sys/kernel/mm/transparent_hugepage/defrag</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204715380.png" alt="image-20200220204715380"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204715380.png" alt="image-20200220204715380"></p>
 <ul>
 <li>保存退出，然后赋予rc.local文件执行权限：chmod +x /etc/rc.d/rc.local</li>
 <li>重启：reboot</li>
@@ -506,8 +508,8 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">*       soft    nofile  65535</span><br><span class="line">*       hard    nofile  65535</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204746159.png" alt="image-20200220204746159"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204753727.png" alt="image-20200220204753727"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204746159.png" alt="image-20200220204746159"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204753727.png" alt="image-20200220204753727"></p>
 <h2 id="克隆yum-hdp虚拟机"><a href="#克隆yum-hdp虚拟机" class="headerlink" title="克隆yum.hdp虚拟机"></a>克隆yum.hdp虚拟机</h2><h3 id="开始克隆"><a href="#开始克隆" class="headerlink" title="开始克隆"></a>开始克隆</h3><ul>
 <li>克隆另外三台虚拟机：yum.hdp、nd-00.hdp、nd-01.hdp、nd-02.hdp</li>
 </ul>
@@ -515,19 +517,19 @@
 <li>启动nd-00.hdp，nd-01.hdp，nd-02.hdp虚拟机，并修改虚拟机的IP地址</li>
 <li>vi /etc/sysconfig/network-scripts/ifcfg-ens192</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204933844.png" alt="image-20200220204933844"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204933844.png" alt="image-20200220204933844"></p>
 <ul>
 <li>重启network：service network start</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220204946224.png" alt="image-20200220204946224"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220204946224.png" alt="image-20200220204946224"></p>
 <ul>
 <li>修改虚拟机hostname：vi /etc/sysconfig/network</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205002542.png" alt="image-20200220205002542"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205002542.png" alt="image-20200220205002542"></p>
 <ul>
 <li>修改虚拟机hostname：hostnamectl set-hostname nd-00.hdp</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205015834.png" alt="image-20200220205015834"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205015834.png" alt="image-20200220205015834"></p>
 <ul>
 <li>关闭虚拟机，并重新分配内存</li>
 </ul>
@@ -540,17 +542,17 @@
 
 </li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205154210.png" alt="image-20200220205154210"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205154210.png" alt="image-20200220205154210"></p>
 <ul>
 <li>此时MySQL已经开始正常运行，不过要想进入MySQL还得先找出此时root用户的密码，通过如下命令可以在日志文件中找出密码：cat /var/log/mysqld.log | grep pass</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205203712.png" alt="image-20200220205203712"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205203712.png" alt="image-20200220205203712"></p>
 <ul>
 <li>输入初始密码，此时不能做任何事情，因为MySQL默认必须修改密码之后才能操作数据库</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">set global validate_password_policy=0;</span><br><span class="line">set global validate_password_length=1;</span><br><span class="line">ALTER USER 'root'@'localhost' IDENTIFIED BY 'root123';</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205214164.png" alt="image-20200220205214164"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205214164.png" alt="image-20200220205214164"></p>
 <ul>
 <li>但此时还有一个问题，就是因为安装了Yum Repository，以后每次yum操作都会自动更新，需要把这个卸载掉</li>
 </ul>
@@ -561,25 +563,25 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">在[mysqld]下添加</span><br><span class="line">collation_server=utf8_general_ci</span><br><span class="line">character_set_server=utf8</span><br><span class="line">default-storage-engine=INNODB</span><br><span class="line">在[client]下添加（如果没有[client]，则创建）</span><br><span class="line">default_character-set=utf8</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205230941.png" alt="image-20200220205230941"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205230941.png" alt="image-20200220205230941"></p>
 <ul>
 <li>重启mysql服务：systemctl restart mysqld.service</li>
 <li>查看字符集： show variables like ‘character_set_%’ ;</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205239792.png" alt="image-20200220205239792"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205239792.png" alt="image-20200220205239792"></p>
 <h3 id="在mysql数据库创建相应的用户和DB"><a href="#在mysql数据库创建相应的用户和DB" class="headerlink" title="在mysql数据库创建相应的用户和DB"></a>在mysql数据库创建相应的用户和DB</h3><ul>
 <li>创建ambari数据库及数据库的用户名和密码</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">set global validate_password_policy=0;</span><br><span class="line">set global validate_password_length=1;</span><br><span class="line">create database ambari character set utf8;</span><br><span class="line">CREATE USER 'ambari'@'%'IDENTIFIED BY 'Ambari123';</span><br><span class="line">GRANT ALL PRIVILEGES ON ambari.* TO 'ambari'@'%';</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205516910.png" alt="image-20200220205516910"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205516910.png" alt="image-20200220205516910"></p>
 <ul>
 <li>创建hive数据库及hive库的用户名和密码</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">create database hive character set utf8;</span><br><span class="line">CREATE USER 'hive'@'%'IDENTIFIED BY 'Hive123';</span><br><span class="line">GRANT ALL PRIVILEGES ON hive.* TO 'hive'@'%';</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205531051.png" alt="image-20200220205531051"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205541563.png" alt="image-20200220205541563"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205531051.png" alt="image-20200220205531051"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205541563.png" alt="image-20200220205541563"></p>
 <ul>
 <li>下载mysql-connection-java：</li>
 </ul>
@@ -590,12 +592,12 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ls /usr/share/java/mysql-connector-java.jar</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205552949.png" alt="image-20200220205552949"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205552949.png" alt="image-20200220205552949"></p>
 <h3 id="免密登录"><a href="#免密登录" class="headerlink" title="免密登录"></a>免密登录</h3><ul>
 <li>配置本地hosts文件</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205653230.png" alt="image-20200220205653230"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205708704.png" alt="image-20200220205708704"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205653230.png" alt="image-20200220205653230"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205708704.png" alt="image-20200220205708704"></p>
 <ul>
 <li>nd-00.hdp ⇒ 00，01，02的免密登录：</li>
 </ul>
@@ -611,7 +613,7 @@
 <h2 id="安装Apache-httpd"><a href="#安装Apache-httpd" class="headerlink" title="安装Apache httpd"></a>安装Apache httpd</h2><ul>
 <li>上传下载文件hdp-3.1.4（借助xftp工具）</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205840641.png" alt="image-20200220205840641"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205840641.png" alt="image-20200220205840641"></p>
 <ul>
 <li>使用yum在线安装httpd</li>
 </ul>
@@ -622,18 +624,18 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start httpd        # 启动httpd</span><br><span class="line">systemctl status httpd        # 查看httpd状态</span><br><span class="line">systemctl enable httpd        # 设置httpd开机自启</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205853444.png" alt="image-20200220205853444"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205853444.png" alt="image-20200220205853444"></p>
 <ul>
 <li>默认端口80，浏览器输入：<a href="http://yum.hdp" target="_blank" rel="noopener">http://yum.hdp</a></li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205906904.png" alt="image-20200220205906904"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205906904.png" alt="image-20200220205906904"></p>
 <ul>
 <li>httpd 会生成 /var/www/html目录（相当于Tomcat的webapps目录），进入到/var/www/html目录下，创建ambari和hdp目录，用来存放安装文件。</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir /var/www/html/ambari</span><br><span class="line">mkdir /var/www/html/hdp</span><br><span class="line">mkdir /var/www/html/hdp/HDP-UTILS-1.1.0.22</span><br><span class="line">mkdir /var/www/html/hdp/HDP-GPL-3.1.4.0</span><br><span class="line">tar -zxvf ambari-2.7.4.0-centos7.tar.gz -C /var/www/html/ambari/</span><br><span class="line">tar -zxvf HDP-3.1.4.0-centos7-rpm.tar.gz -C /var/www/html/hdp/</span><br><span class="line">tar -zxvf HDP-UTILS-1.1.0.22-centos7.tar.gz -C /var/www/html/hdp/HDP-UTILS-1.1.0.22/</span><br><span class="line">tar -zxvf HDP-GPL-3.1.4.0-centos7-gpl.tar.gz -C /var/www/html/hdp/HDP-GPL-3.1.4.0/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205924855.png" alt="image-20200220205924855"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220205934705.png" alt="image-20200220205934705"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205924855.png" alt="image-20200220205924855"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220205934705.png" alt="image-20200220205934705"></p>
 <h2 id="配置本地-Repo"><a href="#配置本地-Repo" class="headerlink" title="配置本地 Repo"></a>配置本地 Repo</h2><h3 id="配置Ambari"><a href="#配置Ambari" class="headerlink" title="配置Ambari"></a>配置Ambari</h3><ul>
 <li>修改配置文件：ambari.repo</li>
 </ul>
@@ -653,7 +655,7 @@
 <h3 id="分发ambari-repo和hdp-repo、hdp-gpl-repo"><a href="#分发ambari-repo和hdp-repo、hdp-gpl-repo" class="headerlink" title="分发ambari.repo和hdp.repo、hdp.gpl.repo"></a>分发ambari.repo和hdp.repo、hdp.gpl.repo</h3><ul>
 <li>repo文件放到/etc/yum.repos.d</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220210120836.png" alt="image-20200220210120836"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220210120836.png" alt="image-20200220210120836"></p>
 <ul>
 <li>把repo文件分发到各个节点的相同目录下</li>
 </ul>
@@ -679,10 +681,10 @@
 <ul>
 <li>使用ambari登录</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220210351496.png" alt="image-20200220210351496"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220210351496.png" alt="image-20200220210351496"></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> <span class="built_in">source</span> /var/lib/ambari-server/resources/Ambari-DDL-MySQL-CREATE.sql;</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 执行完，查看有无报错信息，并查看数据表</span></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"> show tables;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220210403897.png" alt="image-20200220210403897"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220210403897.png" alt="image-20200220210403897"></p>
 <h2 id="启动Ambari-Server"><a href="#启动Ambari-Server" class="headerlink" title="启动Ambari-Server"></a>启动Ambari-Server</h2><ul>
 <li>如果启动失败，关闭服务【ambari-server stop】，重新启动</li>
 </ul>
@@ -693,48 +695,48 @@
 </ul>
 <p><code>yum -y install ambari-agent</code></p>
 <h2 id="访问Ambari-web页面"><a href="#访问Ambari-web页面" class="headerlink" title="访问Ambari web页面"></a>访问Ambari web页面</h2><p>默认端口8080，Username：admin；Password：admin；<a href="http://192.168.121.100:8080" target="_blank" rel="noopener">http://192.168.121.100:8080</a></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220210612837.png" alt="image-20200220210612837"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220210612837.png" alt="image-20200220210612837"></p>
 <h1 id="开始安装集群"><a href="#开始安装集群" class="headerlink" title="开始安装集群"></a>开始安装集群</h1><ul>
 <li>配置集群名称</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211102777.png" alt="image-20200220211102777"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211102777.png" alt="image-20200220211102777"></p>
 <ul>
 <li>选择版本</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211115145.png" alt="image-20200220211115145"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211115145.png" alt="image-20200220211115145"></p>
 <ul>
 <li>配置节点、密钥</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211127892.png" alt="image-20200220211127892"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211127892.png" alt="image-20200220211127892"></p>
 <ul>
 <li>主机确认</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211139211.png" alt="image-20200220211139211"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211139211.png" alt="image-20200220211139211"></p>
 <ul>
 <li>选择大数据组件</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211148792.png" alt="image-20200220211148792"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211148792.png" alt="image-20200220211148792"></p>
 <ul>
 <li>节点分配</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211157937.png" alt="image-20200220211157937"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211157937.png" alt="image-20200220211157937"></p>
 <ul>
 <li>分配从属和客户端</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211206645.png" alt="image-20200220211206645"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211206645.png" alt="image-20200220211206645"></p>
 <ul>
 <li>定制服务</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211215821.png" alt="image-20200220211215821"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211224207.png" alt="image-20200220211224207"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211215821.png" alt="image-20200220211215821"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211224207.png" alt="image-20200220211224207"></p>
 <p><code>ambari-server setup --jdbc-db=mysql --jdbc-driver=/usr/share/java/mysql-connector-java.jar</code></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211233909.png" alt="image-20200220211233909"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211233909.png" alt="image-20200220211233909"></p>
 <ul>
 <li>集群整体概况，点击部署</li>
 </ul>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211245700.png" alt="image-20200220211245700"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211259349.png" alt="image-20200220211259349"></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211311916.png" alt="image-20200220211311916"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211245700.png" alt="image-20200220211245700"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211259349.png" alt="image-20200220211259349"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211311916.png" alt="image-20200220211311916"></p>
 <ul>
 <li><p>等待启动完毕，不用担心警告，后期可以调整，搭建完成，可以在展示页面进行查看集群状态。</p>
 </li>
@@ -745,7 +747,7 @@
 <li>python3环境运行报错，改成python2</li>
 </ul>
 <p><code>vi /usr/bin/hdp-select</code></p>
-<p><img src="/2020/02/20/Apache-Ambari-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/image-20200220211348465.png" alt="image-20200220211348465"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220211348465.png" alt="image-20200220211348465"></p>
 <h2 id="openssl版本的问题："><a href="#openssl版本的问题：" class="headerlink" title="openssl版本的问题："></a>openssl版本的问题：</h2><ul>
 <li>EOF occurred in violation of protocol</li>
 </ul>
@@ -773,7 +775,7 @@
   </entry>
   <entry>
     <title>ChainLink、预言机与两个世界的连接</title>
-    <url>/2020/02/20/ChainLink-the-oracle-connecting-the-two-worlds/</url>
+    <url>/2020/02/20/ChainLink-%E9%A2%84%E8%A8%80%E6%9C%BA%E4%B8%8E%E4%B8%A4%E4%B8%AA%E4%B8%96%E7%95%8C%E7%9A%84%E8%BF%9E%E6%8E%A5/</url>
     <content><![CDATA[<p>互联网诞生之后，人们有现实世界，也有了互联网世界。如今，人们又有了一个新的世界：加密世界。这是区块链带给人们的礼物。</p>
 <p>在过去二十多年，创新者们不断融合着现实和互联网世界，两者相互融入，难以分开。在比特币诞生后十多年后，加密世界也加快了跟现实世界交互的脚步。从蓝狐笔记的角度，加密世界和现实世界的融合会是未来二十年最重要的发展线之一，可以与人工智能和物联网并驾齐驱。</p>
 <a id="more"></a>
@@ -795,7 +797,7 @@
 <p>既然中心化预言机有潜在安全问题，那么，如何获得更安全的预言机服务？关于这一点，ChainLink早在2017年就提出来了，不得不说，这在当时是具有远见卓识的，毕竟2017年DeFi还没有发展起来，预言机的需求也不明显。</p>
 <h2 id="ChainLink预言机如何连接两个世界"><a href="#ChainLink预言机如何连接两个世界" class="headerlink" title="ChainLink预言机如何连接两个世界"></a><strong>ChainLink预言机如何连接两个世界</strong></h2><p>上述可以得出两点：一是，预言机是加密世界和现实世界实现沟通的不可或缺的“中间件”。这决定了其重要地位，会有越来越大的市场规模。二是，预言机安全非常重要，它是很多智能合约，尤其是DeFi大厦的基础构建块，安全是其安身立命之本。</p>
 <p>那么，ChainLink是如何来连接加密世界和现实世界的？</p>
-<p><img src="/2020/02/20/ChainLink-the-oracle-connecting-the-two-worlds/image-20200220171328504.png" alt="image-20200220171328504"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220171328504.png" alt="image-20200220171328504"></p>
 <center>（ChainLink的ETH/USD价格数据流，21个节点提供服务）</center>
 ### **ChainLink预言机的工作流程**
 
@@ -809,7 +811,7 @@
 <li>ChainLink Core将数据报告给ChainLink智能合约（CHAINLINK-SC）</li>
 <li>ChainLink智能合约汇总响应，加权得出一个最终反馈，并将其发送给用户智能合约</li>
 </ul>
-<p><img src="/2020/02/20/ChainLink-the-oracle-connecting-the-two-worlds/image-20200220171538145.png" alt="image-20200220171538145"></p>
+<p><img src="https://lich-img.oss-cn-beijing.aliyuncs.com/typoraimage-20200220171538145.png" alt="image-20200220171538145"></p>
 <center>（来源于ChainLink白皮书）</center>
 ChainLink目前以太坊为主构建，未来也会支持其他智能合约平台，例如跟物联网公链IoTeX和分片公链Harmony等都有合作。
 
@@ -843,14 +845,14 @@ ChainLink目前以太坊为主构建，未来也会支持其他智能合约平�
 ]]></content>
       <categories>
         <category>区块链</category>
-        <category>DeFi</category>
         <category>ChainLink</category>
+        <category>DeFi</category>
       </categories>
       <tags>
         <tag>区块链</tag>
-        <tag>DeFi</tag>
         <tag>预言机</tag>
         <tag>ChainLink</tag>
+        <tag>DeFi</tag>
       </tags>
   </entry>
 </search>
